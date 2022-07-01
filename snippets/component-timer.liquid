@@ -1,0 +1,60 @@
+{{ 'component-timer.css' | asset_url | stylesheet_tag }} 
+
+{% if timer_text_color %}
+
+    {% style %}
+    .timer__title,
+    .timer__counter,
+    .timer_description {
+        color: {{ timer_text_color }}
+    }
+    {% endstyle %}
+    
+{% endif %}
+
+<component-timer class="timer">
+
+    {% if timer_link %}
+        <a class="timer__link" href="{{ timer_link }}"></a>
+    {% endif %}
+
+    <div class="timer__image">
+
+        {% if desktop_image %}
+
+            {% render 'responsive-image', alt_image: 'Timer background image',
+            desktop_image: desktop_image_url, 
+            desktop_aspect_ratio: desktop_image.aspect_ratio, 
+            tablet_image: tablet_image_url, 
+            tablet_aspect_ratio: tablet_image.aspect_ratio, 
+            mobile_image:  mobile_image_url, 
+            mobile_aspect_ratio: mobile_image.aspect_ratio %}
+
+        {% else %}
+
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+
+        {% endif %}
+
+    </div>
+
+    <div class="timer__container">
+        <div class="timer__text-container">
+
+            {% if timer_title %}
+                <h1 class="timer__title">{{timer_title}}</h1>
+            {% endif %}
+
+            <div class="timer__counter" data-counter data-date="{{timer_date}}" data-mensagem-timer-over="{{'events.online_coming_soon.message_for_time_over' | t }}"></div>
+
+            {% if timer_description %}
+                <span class="timer_description">{{timer_description}}</span>
+            {% endif %}
+
+        </div>
+    </div>
+
+</component-timer>
+
+{{ 'component-timer.js' | asset_url | script_tag }}
+

@@ -1,0 +1,47 @@
+.share-button__button {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    color: var(--color-text);
+    font-weight: normal;
+}
+
+button.share-button__button:hover {
+    outline: none;
+}
+
+summary.share-button__button {
+    display: block;
+    cursor: pointer;
+}
+
+.field__input {
+    padding: 10px 15px 10px 39px;
+    font-size: 12px;
+    margin: 15px 0 0 0;
+}
+
+.share-button__copy {
+    background: transparent;
+    font-size: 8px;
+    padding: 2px 3px 2px 3px;
+    position: absolute;
+    left: 12px;
+    top: 27px;
+}
+
+.share-button__copy .icon-link{
+    fill: var(--color-text);
+    vertical-align: bottom;
+    width: 12px;
+    height: 12px;
+}
+
+.field {
+    position: relative;
+}
+
+.share-button__message {
+    padding-left: 5px;
+    font-size: 12px;
+}

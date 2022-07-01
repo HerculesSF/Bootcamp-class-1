@@ -1,0 +1,140 @@
+{% if template == 'index' %}
+  {%- assign simpleMode = true -%}
+{% endif %}
+
+{% render 'footer-scripts' %}
+
+<footer class="footer page-container">
+
+    {% unless simpleMode %}
+
+        <div class="container footer__container">
+
+            {% render 'footer-newsletter' %}
+
+            {% render 'social-links' %}
+
+            <div class="footer__link-list">
+                {% assign footer_linklist = section.settings.menu_footer %}
+                <div class="accordion accordion--white" role="navigation" data-accordion>
+                    {%- for link in linklists[footer_linklist].links -%}
+                    <div class="accordion__item">
+                        <button class="accordion__heading" id="btnFooter{{ forloop.index }}" aria-expanded="false" aria-controls="contentFooter{{ forloop.index }}" data-accordion-heading>{{link.title}}{% render 'icon-add' %}{% render 'icon-less' %}</button>
+                        <div class="accordion__content hidden" id="contentFooter{{ forloop.index }}" role="region" aria-labelledby="btnFooter{{ forloop.index }}" data-accordion-content>
+                        {% for childlink in link.links %}
+                            <a href="{{ childlink.url }}"><span>{{ childlink.title | escape }}</span></a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    {% endunless %}
+
+    {%- comment -%} Start Tolltip {%- endcomment -%}
+
+    {% capture content %}
+        {% render 'social-links' %}
+    {% endcapture %}
+
+    {% render 'tooltip', text: "Connect with us on Social", content: content, align: "right" %}
+
+    {%- comment -%} End Tolltip {%- endcomment -%}
+    
+    <div class="footer__footnote container">
+
+        {% if simpleMode %}
+            <div class="footer_social-links hidden__desktop hidden__tablet">{% render 'social-links' %}</div>
+        {% endif %}
+
+        <div class="footer__copyright">&copy; {{ shop.name | link_to: routes.root_url }}</div>
+        
+        <div class="footer__footnote-links"  {% if simpleMode %} data-footnote-links {% endif %}>
+
+            {% if section.settings.footer_privacy_policy_link %}
+                <a class="footer__privacy-link" href="{{ section.settings.footer_privacy_policy_link }}"> {{ section.settings.footer_privacy_policy_title }}</a>
+            {% endif %}
+
+            {% if section.settings.footer_terms_link %}
+                <a class="footer__privacy-link" href="{{ section.settings.footer_terms_link }}"> {{ section.settings.footer_terms_title }}</a>
+            {% endif %}
+
+            {% if section.settings.footer_accessability_link %}
+                <a class="footer__privacy-link" href="{{ section.settings.footer_accessability_link }}"> {{ section.settings.footer_accessability_title }}</a>
+            {% endif %}
+
+            {% if section.settings.footer_faq_link %}
+                <a href="{{ section.settings.footer_faq_link }}"> {{ section.settings.footer_faq_title }}</a>
+            {% endif %}
+            
+        </div>
+    </div>
+    
+</footer>
+
+{% schema %}
+{
+  "name": {
+    "en": "Footer"
+  },
+  "settings": [
+    {
+        "type": "link_list",
+        "id": "menu_footer",
+        "label": "Menu",
+        "default": "footer"
+    },
+    {
+        "type": "text",
+        "id": "footer_privacy_policy_title",
+        "label": "Privacy Policy Title",
+        "default": "Privacy Policy"
+    },
+    {
+        "type": "url",
+        "id": "footer_privacy_policy_link",
+        "label": "Privacy Policy Link"
+    },
+    {
+        "type": "text",
+        "id": "footer_terms_title",
+        "label": "Terms & Conditions Title",
+        "default": "Terms & Conditions"
+    },
+    {
+        "type": "url",
+        "id": "footer_terms_link",
+        "label": "Terms & Conditions Link"
+    },
+    {
+        "type": "header",
+        "content": "Opening Screen"
+    },
+    {
+        "type": "text",
+        "id": "footer_accessability_title",
+        "label": "Accessability Title",
+        "default": "Accessability"
+    },
+    {
+        "type": "url",
+        "id": "footer_accessability_link",
+        "label": "Accessability Link"
+    },
+    {
+        "type": "text",
+        "id": "footer_faq_title",
+        "label": "FAQ Title",
+        "default": "FAQ"
+    },
+    {
+        "type": "url",
+        "id": "footer_faq_link",
+        "label": "FAQ"
+    }
+  ],
+  "blocks": []
+}
+{% endschema %}

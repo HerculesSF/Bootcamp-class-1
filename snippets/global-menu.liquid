@@ -1,0 +1,24 @@
+
+<div class="global-menu">
+
+    <nav>
+
+        <ul data-accordion data-accordion-auto-close>
+
+            {% render 'global-menu-online', menu: settings.event_online_menu  %}
+            {% render 'global-menu-physical', menu: settings.event_physical_menu  %}
+            {% render 'global-menu-default', menu: menu  %}
+        
+        </ul>
+
+    </nav>
+
+    <div class="global-menu__bottom">
+        {% for level1 in linklists[btn_menu].links %}
+            {%- assign menu_title = level1.title | handleize -%}
+
+            <a data-modal-open="{{ menu_title }}" href="{{ level1.url }}">{{ level1.title }}</a>
+        {% endfor %}
+    </div>
+
+</div>

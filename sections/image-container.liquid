@@ -1,0 +1,105 @@
+<style>
+
+    .image-container__image {
+        margin-bottom: 15px;
+    }
+
+    .image-container {
+        margin: 40px 0;
+    }
+
+    @media (min-width: 900px) {
+        .image-container__blocks {
+            display: flex;
+        }
+
+        .image-container__image {
+            width: 100%;
+            margin-right: 15px;
+        }
+
+        .image-container__image:last-child {
+            margin-right: 0px;
+        }
+    }
+
+</style>
+
+<div class="image-container {% if  section.settings.full_screen %}container__full-width{% else %}container{% endif %}">
+
+  <div class="image-container__blocks">
+
+    {%- for block in section.blocks -%}
+
+        {%- assign mobile_image_url = block.settings.mobile_image | img_url: '800x' -%}
+        {%- assign tablet_image_url = block.settings.tablet_image | img_url: '800x' -%}
+        {%- assign desktop_image_url = block.settings.desktop_image  | img_url: '2000x' -%}
+
+        <div class="image-container__image">
+            {% render 'responsive-image', alt_image: block.settings.desktop_image.alt,
+            desktop_image: desktop_image_url, 
+            desktop_aspect_ratio: block.settings.desktop_image.aspect_ratio, 
+            tablet_image: tablet_image_url, 
+            tablet_aspect_ratio: block.settings.tablet_image.aspect_ratio, 
+            mobile_image:  mobile_image_url, 
+            mobile_aspect_ratio: block.settings.mobile_image.aspect_ratio %}
+        </div>
+
+    {%- endfor -%}
+
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Image container",
+  "settings": [
+    {
+        "type": "checkbox",
+        "id": "full_screen",
+        "default": false,
+        "label": "Full screen"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "desktop_image",
+            "label": "Desktop"
+        },
+        {
+            "type": "image_picker",
+            "id": "tablet_image",
+            "label": "Tablet"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image container",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

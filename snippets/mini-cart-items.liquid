@@ -1,0 +1,50 @@
+{%- capture mini_cart_items_layout -%}
+
+<div class='mini-cart__item'>
+                
+    <div class='mini-cart__item-image-content'>
+        <img class='mini-cart__item-image' src='[[itemImageSrc]]'/>
+     </div>
+
+    <div class='mini-cart__item-details'>
+        <a class='mini-cart__item-name' href='[[itemUrl]]'>[[itemTitle]]</a>
+        [[itemOptions]]
+
+        <div class='mini-cart__item-price' data-minicart-item-id='[[itemID]]'>[[itemPrice]]</div>
+
+        <div class='mini-cart__item-qty'>
+            <div class='quantity-selector' data-quantity-selector>
+                <label for='quantity-selector-[[randomNumber]]'>[[itemQuantity]]</label>
+                <button class='quantity-selector__minus' data-quantity-selector-minus>
+                    <span class='visually-hidden'>Decrease quantity</span>
+                    <svg aria-hidden='true' focusable='false' role='presentation' class='icon icon-minus' width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='7' y='12.6511' width='12.2854' height='0.982835' rx='0.491417' stroke='none'/></svg>
+                </button>
+                <input id='quantity-selector-[[randomNumber]]'
+                        data-cart-page-item-id='[[itemID]]'
+                        class='quantity-selector__quantity'
+                        autocomplete='off'
+                        type='number'
+                        min='1'
+                        size='4'
+                        aria-label='[[itemQuantity]]'
+                        pattern='[0-9]*'
+                        name='updates[]'
+                        value='[[itemQuantity]]'/>
+                <button class='quantity-selector__plus' data-quantity-selector-plus>
+                    <span class='visually-hidden'>Increase quantity</span>
+                    <svg aria-hidden='true' focusable='false' role='presentation' class='icon icon-plus' width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='12.6512' y='19.2854' width='12.2854' height='0.982835' rx='0.491417' transform='rotate(-90 12.6512 19.2854)' stroke='none'/><rect x='7' y='12.6511' width='12.2854' height='0.982835' rx='0.491417' stroke='none'/></svg>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class='mini-cart__item-remove'>
+        <button class='btn-link' data-minicart-remove-item data-minicart-variant-id='[[itemID]]'>Remove</button>
+    </div>
+
+</div>
+
+{%- endcapture -%}
+{%- assign str = '}}' -%}
+{{- mini_cart_items_layout | json | replace: '[[', '{{' | replace: ']]', str -}}

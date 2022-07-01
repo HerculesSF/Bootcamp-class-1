@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="canonical" href="{{ canonical_url }}">
+
+        {% render 'google-tag' %}
+
+        {%- if settings.favicon != blank -%}
+            <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'icon' }}" type="image/png">
+        {%- endif -%}
+
+        {% comment %} Meta Description {% endcomment %}
+        {% if template.name == 'index' %}
+
+            {% comment %} Only in Home Page {% endcomment %}
+            {% assign page_description = 'homepage.general.title' | t | capitalize | append: ' - ' | append: shop.name %}
+
+        {% elsif template.name == 'blog' %}
+
+            {% comment %} Only in Blog Pages {% endcomment %}
+            {% assign page_description = template.name | capitalize | append: ' - ' | append: shop.name %}
+
+        {% endif %}
+
+        {%- if page_description -%}
+
+            <meta name="description" content="{{ page_description | escape }}">
+
+        {%- endif -%}
+
+        <title>{{ page_title }}</title>
+
+        {{ content_for_header }}
+
+        {% include 'css-init' %}
+
+        {% render 'head-scripts' %}
+
+    </head>
+
+    <body class="template-{{ request.page_type | handle }} template-type-{{ template | handle }}">
+
+        {% comment %} Shop global events {% endcomment %}
+        {% render 'shop-events' %}
+        
+        {% if template == 'index' %}
+
+            <div class="index-container">
+
+                {% section 'header' %}
+
+                {% section 'opening-screen' %}
+
+                {% section 'footer' %}
+
+            </div>
+
+        {% else %}
+
+            {% section 'header' %}
+
+            {% section 'alert-message' %}
+
+            {{ content_for_layout }}
+            
+            
+
+            {% render 'mini-cart' %}
+
+            {% section 'footer' %}
+            
+        {% endif %}
+
+        {% include 'datalayer' %}
+
+    {% include 'appikon-discounts' %}</body>
+
+</html>

@@ -1,0 +1,80 @@
+{%- assign mobile_image_url = section.settings.mobile_image | img_url: '600x' -%}
+{%- assign tablet_image_url = section.settings.tablet_image | img_url: '800x' -%}
+{%- assign desktop_image_url = section.settings.desktop_image  | img_url: '2000x' -%}
+
+{% render 'component-timer',
+timer_title: section.settings.timer_title,
+timer_date: section.settings.timer_date,
+timer_description: section.settings.timer_description,
+timer_text_color: section.settings.timer_text_color,
+timer_link: section.settings.timer_link_url,
+desktop_image: section.settings.desktop_image,
+tablet_image: section.settings.tablet_image,
+mobile_image: section.settings.mobile_image,
+mobile_image_url: mobile_image_url,
+tablet_image_url: tablet_image_url,
+desktop_image_url: desktop_image_url%}
+
+{% schema %}
+{
+  "name": "Timer",
+  "settings": [
+    {
+        "type": "text",
+        "id": "timer_title",
+        "label": "Title",
+        "default": "Fleur du Mal"
+    },
+    {
+        "type": "text",
+        "id": "timer_description",
+        "label": "Description",
+        "default": "Lorem Ipsum"
+    },
+    {
+        "type": "text",
+        "id": "timer_date",
+        "label": "Date",
+        "info": "Follow the pattern 'YYYY-MM-DD 00:00' ",
+        "default": "2021-08-12 19:00" 
+    },
+    {
+        "type": "color",
+        "id": "timer_text_color",
+        "label": "Text Color",
+        "default": "#000000"
+    },
+    {
+        "type": "url",
+        "id": "timer_link_url",
+        "label": "Link"
+    },
+    {
+        "type": "header",
+        "content": "Background Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop"
+    },
+    {
+        "type": "image_picker",
+        "id": "tablet_image",
+        "label": "Tablet"
+    },
+    {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile"
+    }
+  ],
+  "presets": [
+    {
+        "name": "Timer"
+    }
+    ]
+}
+{% endschema %}
+
+

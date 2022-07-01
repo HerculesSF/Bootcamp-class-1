@@ -1,0 +1,160 @@
+{%- comment -%} Capture the content for header containing the tracking data {%- endcomment -%}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+{% comment %} Check preview live URL {% endcomment %}
+{%- capture previewLive -%}
+    {%- render 'preview-event-url', contentForQuerystring: contentForQuerystring -%}
+{%- endcapture -%}
+
+{% if previewLive contains 'true' %}
+  {% assign previewLive = true %}
+{% else %}
+  {% assign previewLive = false %}
+{% endif %}
+
+{% comment %} Get event handle from page title {% endcomment %}
+{%- assign eventName = page.title | split: '-' | first | handleize -%}
+
+{%- capture eventIndex -%}
+    {%- render 'event-index', eventName: eventName -%}
+{%- endcapture -%}
+
+{%- assign eventIndex = eventIndex | plus: 0 -%}
+
+{% comment %} Check if the event is live {% endcomment %}
+{%- capture eventStatus -%}{% render 'get-event-status', eventIndex: eventIndex %}{%- endcapture -%}
+
+{%- assign liveEvent = false -%}
+{%- if eventStatus == 'live' -%}
+    {%- assign liveEvent = true -%}
+{%- endif -%}
+
+{% comment %} Templates {% endcomment %}
+{% if liveEvent or previewLive %}
+
+    {%- if previewLive -%}
+        <div style="background: red;color: white;text-align: center;">Preview mode</div>
+    {%- endif -%}
+
+    {%- if eventIndex >= 0 -%}
+
+        {% capture eventDate %}
+            {% render 'format-date', dateValue: shop.metafields.accentuate.event_end_date[eventIndex], default: true%}
+        {% endcapture %}
+
+        {%- assign timer_mobile =  page.metafields.accentuate.timer_mobile_image | first -%}
+        {%- assign mobile_image_url = timer_mobile.cloudinary_src -%}
+        {%- assign timer_tablet = page.metafields.accentuate.timer_tablet_image | first -%}
+        {%- assign tablet_image_url = timer_tablet.cloudinary_src -%}
+        {%- assign timer_desktop = page.metafields.accentuate.timer_desktop_image | first -%}
+        {%- assign desktop_image_url = timer_desktop.cloudinary_src -%}
+
+        {% render 'component-timer',
+            timer_title: page.metafields.accentuate.timer_title,
+            timer_date: eventDate,
+            timer_description: page.metafields.accentuate.timer_description,
+            timer_text_color: page.metafields.accentuate.timer_text_color,
+            timer_link: page.metafields.accentuate.timer_link_url,
+            desktop_image: timer_desktop,
+            tablet_image: timer_tablet,
+            mobile_image: timer_mobile,
+            mobile_image_url: mobile_image_url,
+            tablet_image_url: tablet_image_url,
+            desktop_image_url: desktop_image_url
+        %}
+
+    {%- endif -%}
+
+    {%- assign imgSmall =  page.metafields.accentuate.hot_trends_small_image | first -%}
+    {%- assign imgSmallSrc = imgSmall.cloudinary_src -%}
+    {%- assign imgLarge =  page.metafields.accentuate.hot_trends_large_image | first -%}
+    {%- assign imgLargeSrc = imgLarge.cloudinary_src -%}
+
+    {% render 'hot-trends', 
+        heading: page.metafields.accentuate.hot_trends_heading,
+        small_image: imgSmall,
+        small_title: page.metafields.accentuate.hot_trends_small_title,  
+        small_description: page.metafields.accentuate.hot_trends_small_description,  
+        small_link: page.metafields.accentuate.hot_trends_small_link,  
+        large_image: imgLarge,
+        large_title: page.metafields.accentuate.hot_trends_large_title,
+        large_description: page.metafields.accentuate.hot_trends_large_description,  
+        large_link: page.metafields.accentuate.hot_trends_large_link,
+        imgSmallSrc: imgSmallSrc,
+        imgLargeSrc: imgLargeSrc
+    %}
+
+    {% render 'products-slider',
+        title: page.metafields.accentuate.products_carousel_heading,
+        collections_slider: page.metafields.accentuate.products_carousel_collection
+    %}
+
+    {%- assign banner_mobile = page.metafields.accentuate.banner_mobile_image | first -%}
+    {%- assign banner_mobile_image = banner_mobile.cloudinary_src  | append: 'w_800' -%}
+    {%- assign banner_tablet = page.metafields.accentuate.banner_tablet_image | first -%}
+    {%- assign banner_tablet_image = banner_tablet.cloudinary_src  | append:  'w_800' -%}
+    {%- assign banner_desktop = page.metafields.accentuate.banner_desktop_image | first -%}
+    {%- assign banner_desktop_image = banner_desktop.cloudinary_src | append:  'w_2000' -%}
+
+    <style>
+        @media (min-width: 900px) {
+            .banner-overlay {
+            margin-bottom: -55px;
+            }
+
+            .banner-overlay__image {
+                z-index: -1;
+                position: inherit; 
+            }
+        }
+    </style>
+
+    {% render 'banner-overlay',
+        heading: page.metafields.accentuate.banner_heading,
+        subheading: page.metafields.accentuate.banner_subheading,
+        button: page.metafields.accentuate.banner_button_value,
+        button_style: "link",
+        text_align: page.metafields.accentuate.text_alignment,
+        text_color: page.metafields.accentuate.banner_text_color,
+        alt_image: page.metafields.accentuate.banner_subheading,
+        mobile_image: banner_mobile,
+        tablet_image: banner_tablet,
+        desktop_image: banner_desktop,
+        mobile_image_url: banner_mobile_image,
+        tablet_image_url: banner_tablet_image,
+        desktop_image_url: banner_desktop_image,
+        message_link: page.metafields.accentuate.banner_link,
+        small_style: true,
+        mobile_disable_overlay: page.metafields.accentuate.banner_display_overlay,
+        overlay_position: "middle",
+        full_width: page.metafields.accentuate.banner_full_width,
+        event: true
+    %}
+
+{% else %}
+
+    {%- assign coming_soon_image = page.metafields.accentuate.coming_soon_image | first -%}
+    {%- assign form_heading = 'events.online_coming_soon.form_heading' | t -%}
+    {%- assign form_button_text = 'events.online_coming_soon.form_button_text' | t -%}
+
+    {% comment %} Event date {% endcomment %}
+    {%- if eventIndex >= 0 -%}
+        {% capture eventDate %}
+            {% render 'format-date', dateValue: shop.metafields.accentuate.event_start_date[eventIndex] %} - {% render 'format-date', dateValue: shop.metafields.accentuate.event_end_date[eventIndex] %}
+        {% endcapture %}
+    {%- endif -%}
+
+    {% render 'coming-soon'
+        highlighted_info: eventDate,
+        heading: page.metafields.accentuate.coming_soon_heading,
+        additional_info: page.metafields.accentuate.coming_soon_Additional_Info,
+        description: page.metafields.accentuate.coming_soon_description,
+        form_heading: form_heading,
+        klaviyo_list_id: page.metafields.accentuate.coming_soon_klaviyo_list_id,
+        form_button_text: form_button_text,
+        anchor_link: page.metafields.accentuate.coming_soon_anchor_link,
+        anchor_text: page.metafields.accentuate.coming_soon_anchor_text,
+        coming_soon_image: coming_soon_image
+    %}
+    
+{% endif %}

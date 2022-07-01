@@ -1,0 +1,318 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "260 Sample Sale",
+    "theme_version": "0.0.1",
+    "theme_author": "Imagination Media",
+    "theme_documentation_url": "https:\/\/www.imaginationmedia.com\/",
+    "theme_support_url": "https:\/\/www.imaginationmedia.com\/"
+  },
+  {
+    "name": "Page Container Width",
+    "settings": [
+      {
+        "type": "text",
+        "id": "max_width",
+        "label": "Maximum width of pages (in pixel)",
+        "default": "1300"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32 px"
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Predictive search"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_enabled",
+        "default": true,
+        "label": "Enable Predictive Search"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_vendor",
+        "default": false,
+        "label": "Show Vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_price",
+        "default": true,
+        "label": "Show Price"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_show_store_Events",
+        "default": true,
+        "label": "show In-Store Events"
+      },
+      {
+        "type": "header",
+        "content": "Type of results"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_display_product_type",
+        "default": true,
+        "label": "Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_display_article_type",
+        "default": true,
+        "label": "Articles"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_display_collection_type",
+        "default": true,
+        "label": "Collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search_display_page_type",
+        "default": true,
+        "label": "Pages"
+      },
+      {
+        "type": "header",
+        "content": "Store Events"
+      },
+      {
+        "type": "text",
+        "id": "predictive_search_store_events_label",
+        "label": "Store Events label",
+        "default": "See In-Store Events"
+      },
+      {
+        "type": "url",
+        "id": "predictive_search_store_events_url",
+        "label": "Store Events link"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social links"
+      },
+      {
+        "type": "text",
+        "id": "social_title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_name_NYC",
+        "label": "Instagram NYC"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link_NYC",
+        "label": "Instagram NYC Link",
+        "info": "http:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_name_LA",
+        "label": "Instagram LA"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link_LA",
+        "label": "Instagram LA Link",
+        "info": "http:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_name_MIA",
+        "label": "Instagram MIA"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link_MIA",
+        "label": "Instagram MIA Link",
+        "info": "http:\/\/instagram.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_name",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_link",
+        "label": "TikTok Link",
+        "info": "http:\/\/instagram.com\/shopify"
+      }
+    ]
+  },
+  {
+    "name": "Google Tag Manager",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Google Tag Manager Id"
+      },
+      {
+        "type": "text",
+        "id": "google_tag_id",
+        "label": "Google Tag ID"
+      }
+    ]
+  },
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Zoom"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_pswp_zoom",
+        "default": false,
+        "label": "Enable image zoom button"
+      }
+    ]
+  },
+  {
+    "name": "Buy More, Save More Popup",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "popup_timer-active",
+        "label": "Active pop up timer",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "popup_timer",
+        "label": "Define pop up timer",
+        "info": "Just add days"
+      }
+    ]
+  },
+  {
+    "name": "Swatches",
+    "settings": [
+      {
+        "type": "text",
+        "id": "swatch_types",
+        "label": "Image type options",
+        "info": "Example: color|testcolor|hrcolor"
+      }
+    ]
+  },
+  {
+    "name": "Event configs",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Online events"
+      },
+      {
+        "type": "text",
+        "id": "event_online_template_live",
+        "label": "Template name for online events",
+        "default": "page.event-online",
+        "info": "If you change this value, make sure to create the template in the source code."
+      },
+      {
+        "type": "text",
+        "id": "event_online_menu",
+        "label": "Menu",
+        "default": "online-events"
+      },
+      {
+        "type": "header",
+        "content": "Physical events"
+      },
+      {
+        "type": "text",
+        "id": "event_physical_template_live",
+        "label": "Template name for physical events",
+        "default": "page.event-physical",
+        "info": "If you change this value, make sure to create the template in the source code."
+      },
+      {
+        "type": "text",
+        "id": "event_physical_menu",
+        "label": "Menu",
+        "default": "physical-events"
+      }
+    ]
+  },
+  {
+    "name": "Instagram App",
+    "settings": [
+      {
+        "type": "text",
+        "id": "instagram_260",
+        "label": "Elfsight #260SampleSale ID"
+      },
+      {
+        "type": "text",
+        "id": "instagram_la",
+        "label": "Elfsight #260LA ID"
+      },
+      {
+        "type": "text",
+        "id": "instagram_miami",
+        "label": "Elfsight #260Miami ID"
+      }
+    ]
+  },
+  {
+    "name": "Quick View",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Quick View"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_quick_view",
+        "default": false,
+        "label": "Enable quick view on entire theme"
+      }
+    ]
+  },
+  {
+    "name": "Product Grid",
+    "settings": [
+      {
+        "type": "radio",
+        "id": "line_size",
+        "label": "Products per line",
+        "options": [
+          {
+            "value": "one-third",
+            "label": "3 products per line"
+          },
+          {
+            "value": "quarter",
+            "label": "4 products per line"
+          }
+        ],
+        "default": "quarter"
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{%- capture template_content -%}
+
+    <select name="id" class="product-form__options" id="productSelect" data-variant-select>
+        [[options]]
+    </select>
+    
+{%- endcapture -%}
+
+{%- assign str = '}}' -%}
+
+{{- template_content | json | replace: '[[', '{{' | replace: ']]', str -}}

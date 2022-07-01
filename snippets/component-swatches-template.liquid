@@ -1,0 +1,9 @@
+{%- capture template_content -%}
+
+    [[content]]
+    
+{%- endcapture -%}
+
+{%- assign str = '}}' -%}
+
+{{- template_content | json | replace: '[[', '{{' | replace: ']]', str -}}

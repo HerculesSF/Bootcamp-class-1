@@ -1,0 +1,80 @@
+
+<nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs" data-type="{{ product.type }}">
+    <ul class="breadcrumbs__list">
+        {% if template contains 'page' %}
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/" title="Home">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span aria-current="page">/ {{ page.title }}</a>
+            </li>
+        {% elsif template contains 'search' %}
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/" title="Home">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span aria-current="page">/ Searching for "{{ search.terms }}"</span>
+            </li>
+        {% elsif template contains 'product' %}
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/collections/all" title="Products">Products</a>
+            </li>
+            {% if collection.url %}
+                <li class="breadcrumbs__item">
+                    <span aria-current="collection">/  {{ collection.title | link_to: collection.url }}</span>
+                </li>
+            {% endif %}
+            <li class="breadcrumbs__item">
+                <span aria-current="product">/  {{ product.title }}</a>
+            </li>
+        {% elsif template contains 'collection' and collection.handle %}
+            {%- assign collection_title = collection.title | split: ' - ' | last -%}
+            {%- assign collection_name = collection.title | split: ' - ' | first -%}
+            {% assign page_name = collection_name | replace: ' ', '-'  -%}
+            {% if current_tags %}
+                {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+                <li class="breadcrumbs__item">
+                    <span aria-current="collection">{{ collection.title | link_to: url }}</a>
+                </li>    
+                <li class="breadcrumbs__item">          
+                    <span aria-current="collection"> / {{ current_tags | join: " + " }} ({{ 'collections.general.items_with_count' | t: count: collection.products_count }})</span>
+                </li>  
+            {% else %}
+                <li class="breadcrumbs__item">
+                    {% if footer %}  
+                        <span aria-current="collection"><a class="breadcrumb__name" href="/pages/{{page_name | downcase}}">{{ collection_name | upcase }}</a> / {{ collection_title | upcase }} ({{ 'collections.general.items_with_count' | t: count: collection.products_count }})</a>
+                    {% else %}
+                        <span aria-current="collection"><a class="breadcrumb__name" href="/pages/{{page_name | downcase}}">{{ collection_name | capitalize }}</a> > {{ collection_title | capitalize }} ({{ 'collections.general.items_with_count' | t: count: collection.products_count }})</a>
+                    {% endif %}
+                </li>    
+            {% endif %}
+        {% elsif template == 'blog' %}
+            {% if current_tags %}
+                <li class="breadcrumbs__item">
+                    <span aria-current="blog">{{ blog.title | link_to: blog.url }}</a>
+                </li>
+                <li class="breadcrumbs__item">
+                    <span aria-current="blog">/ {{ current_tags | join: " + " }}</a>
+                </li>
+            {% else %}
+                <li class="breadcrumbs__item">
+                    <span aria-current="blog">{{ blog.title }}</a>
+                </li>
+            {% endif %}
+        {% elsif template == 'article' %}
+            <li class="breadcrumbs__item">
+                <span aria-current="blog">{{ blog.title | link_to: blog.url }}</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span aria-current="article">/ {{ article.title }}</a>
+            </li>
+        {% else %}
+            <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link" href="/" title="Home">Home</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span aria-current="page">/ {{ page_title }}</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

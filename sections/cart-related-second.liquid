@@ -1,0 +1,47 @@
+{%- for item in cart.items -%}
+    
+  {% if forloop.last == true and forloop.length > 1 %}
+
+    {%- assign productID = item.product.id  -%}
+
+  {% endif %}
+
+{%- endfor -%}
+
+
+<div class="cart-related-products">
+
+    {%- if productID != blank -%}
+  
+      {% render 'related-products', productID: productID, title: section.settings.heading %}
+  
+    {%- endif -%}
+  
+</div>
+
+{% schema %}
+{
+  "name": "Cart related second",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_related_products",
+      "label": "Turn on related products",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Slide Heading",
+      "default": "Have you shopped yet..."
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+        "name": "Cart related second"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,41 @@
+{% unless settings.enable_quick_view %}
+    {% assign quickview = false %}
+{% endunless %}
+
+<product-card class="product-card product-card--margin-top">
+    <div class="product-card__wrapper">
+
+        <div class="product-card__image-container">
+
+            {%- assign preview_image = collection.featured_media -%}
+           
+            <product-gallery-component data-handle="{{collection.handle}}" class="product-card__image-wrapper" >
+                {% if collection.image != blank %}
+                    {%- assign preview_image_url = collection.image -%}
+                {% else %}
+                    {%- assign preview_image_url = collection.products.first.featured_image -%}
+                {% endif %}
+                
+                <img src="{{ preview_image_url | img_url: '1024x'}}" alt="{{ collection.title }}" image" loading="lazy"/>
+                
+            </product-gallery-component>
+
+        </div>
+
+        <div class="product-card__text-container">
+            <div class="product-card__name-wrapper {% if quickview %}product-card__name-wrapper--quickview{% endif %}">
+                <a href="{{collection.url}}" class="product-card__name">{{ collection.title }}</a>
+                {% if quickview %}
+                    <div class="product-card__addtocart--hover">
+                        <button class="btn btn-link" data-quick-view-handle="{{collection.handle}}">See collection</button>
+                    </div>
+                {% endif %}
+            </div>
+            {% if quickview %}
+                <div class="product-card__addtocart">
+                    <button class="btn btn-link" data-quick-view-handle="{{collection.handle}}">See collection</button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</product-card>

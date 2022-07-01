@@ -1,0 +1,27 @@
+{% if search_page_filter %}
+    {% assign sort_by = search.sort_by | default: search.default_sort_by %}
+{% else %}
+    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+{% endif %}
+
+<script src="{{ 'collection-filters.js' | asset_url }}" defer="defer"></script>
+
+<collection-filters class="filters-container">
+
+  <form class="filters" data-filter id="CollectionFiltersForm">
+
+      {% if search_page_filter %}
+          <input type="hidden" name="q" value="{{ search.terms }}" >
+      {% endif %}
+
+      {% render 'filters-header', search_page_filter: search_page_filter %}
+
+      {% render 'filters-items', search_page_filter: search_page_filter %}
+
+      {% render 'filters-footer' %}
+
+  </form>
+
+  <div class="global-overlay" data-filter-overlay></div>
+
+</collection-filters>

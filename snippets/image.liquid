@@ -1,0 +1,21 @@
+{% if alt == blank %}
+    {%- assign alt = 'Image' -%}
+{% endif %}
+
+{% if disableLazy == false %}
+    {%- assign aspect_ratio = false -%}
+{% endif %}
+
+{% if aspect_ratio %}
+
+    <div class="{% if disableLazy != false %}loading{% endif %} {{ class }}" style="padding-top:{{ 1 | divided_by: aspect_ratio | times: 100}}%;">
+        <img src="{{ src }}" alt="{{ alt }}" {% if disableLazy != false %}loading="lazy"{% endif %} class="{{ image_class}}" {% if width %}width="{{ width }}"{% endif %} {% if height %}height="{{ height }}"{% endif %}/>
+    </div>
+
+{% else %}
+
+    <div class="{% if disableLazy != false %}loading{% endif %} {{ class }}">
+        <img src="{{ src }}" alt="{{ alt }}" {% if disableLazy != false %}loading="lazy"{% endif %} class="{{ image_class}}" {% if width %}width="{{ width }}"{% endif %} {% if height %}height="{{ height }}"{% endif %}/>
+    </div>
+    
+{% endif %}

@@ -1,0 +1,64 @@
+<div class="mini-cart-container">
+  
+  <div class="mini-cart" data-mini-cart>
+
+    <form action="/cart" method="post" novalidate>
+
+    {%- comment -%} Header {%- endcomment -%}
+    <div class="mini-cart__header">
+      <button class="btn-link close" aria-label="Close" data-minicart-close-button>{% render 'icon-close' %}</button>
+      <div class="mini-cart__item-count">
+        {{ 'cart.mini-cart.title' | t }} (<span data-minicart-count></span>)
+      </div>
+    </div>
+
+    {%- comment -%} Minicart product added message {%- endcomment -%}
+    <div class="mini-cart__product-added-message" data-mini-cart-product-added-message></div>
+
+    {%- comment -%} Free shipping bar {%- endcomment -%}
+    <div class="mini-cart__free-shipping-bar" data-minicart-free-shipping-bar>
+      {% render 'progress-bar' %}
+    </div>
+
+    {%- comment -%} Minicart error messages {%- endcomment -%}
+    <div class="mini-cart__error-message" data-error-message></div>
+
+    {%- comment -%} Minicart items {%- endcomment -%}
+    <div class="mini-cart__items" data-mini-cart-items></div>
+
+    {%- comment -%} Minicart footer {%- endcomment -%}
+    <div class="mini-cart__footer" data-minicart-footer>
+
+      <div class="mini-cart__footer-subtotal">Subtotal: <span class="wholesale-cart-total"></span><span class="wholesale-original-cart-total" data-minicart-subtotal></span></div>
+      {%- comment -%}<div class="mini-cart__footer-shipping" data-minicart-shipping></div>
+      <hr>
+      <div class="mini-cart__footer-total" data-minicart-total2></div>{%- endcomment -%}
+      <button type="submit" name="checkout" class="btn btn-secondary">{{ 'cart.mini-cart.checkout' | t }}</button>
+
+      {% assign close_text = 'cart.mini-cart.close' | t %}
+
+      <div class="mini-cart__footer-info">
+
+        <a class="{% if close_text != blank %}mini-cart__footer-info--left{% endif %}" href="{{ routes.cart_url }}">{{ 'cart.mini-cart.info' | t }}</a>
+
+        {% if close_text != blank %}
+          <a class="mini-cart__footer-info--right" href="#" aria-label="Close" data-minicart-close-button> {{ 'cart.mini-cart.close' | t }}</a>
+        {% endif %}
+
+      </div>
+      
+    </div>
+
+    </form>
+
+  </div>
+
+  <div class="minicart-overlay global-overlay" data-minicart-close></div>
+</div>
+
+<script>
+  var miniCartTemplate = {
+    // Items Template
+    'mini_cart_items_layout': {% render 'mini-cart-items', layout: 'mini_cart_items_layout' %}
+	};
+</script> 

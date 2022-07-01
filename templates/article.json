@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "test_index": {
+      "type": "test",
+      "settings": {}
+    }
+  },
+  "order": [
+    "test_index"
+  ]
+}

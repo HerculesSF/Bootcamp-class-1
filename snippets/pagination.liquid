@@ -1,0 +1,13 @@
+<div class="pagination">
+    <div class="pagination__itens">
+        {% if paginate.previous.is_link %}
+            <a class="pagination__arrow-left" aria-label="paginate arrow left" href="{{ paginate.previous.url }}">{% render 'icon-arrow' %}</a>
+        {% endif %}
+
+        {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+
+        {% if paginate.next.is_link %}
+            <a class="pagination__arrow-right" href="{{ paginate.next.url }}" aria-label="paginate arrow right">{% render 'icon-arrow' %}</a>
+        {% endif %}
+    </div>
+</div>

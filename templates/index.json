@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "opening_screen": {
+      "type": "opening-screen",
+      "settings": {}
+    }
+  },
+  "order": [
+    "opening_screen"
+  ]
+}

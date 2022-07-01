@@ -1,0 +1,73 @@
+{{ 'component-active-facets.css' | asset_url | stylesheet_tag }}
+
+{%- assign activeFacets = 0 -%}
+
+<div class="active-facets" data-filter-count="0">
+
+    {% if search_page_filter %}
+        {% assign filters = search.filters %}
+        {% assign route_url = routes.search_url %}
+    {% else %}
+        {% assign filters = collection.filters %}
+        {% assign route_url = collection.url %}
+    {% endif %}
+
+    <facet-remove class="active-facets__button-wrapper">
+        <a href="{{ route_url.url }}?sort_by={{ sort_by }}{% if search_page_filter %}&q={{search.terms}}{% endif %}" class="active-facets__button active-facets__button-remove active-facets__button-remove-all active-facets__button--hidden">
+            <span>Clear All</span>
+            {% render 'icon-close' %}
+        </a>
+    </facet-remove>
+                        
+    {%- for filter in filters -%}
+
+        {%- for value in filter.active_values -%}
+
+            {% if value.count > 0 %}
+
+                {%- assign activeFacets = activeFacets | plus: 1 -%}
+
+                <facet-remove>
+                    <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--hidden">
+                        <span class="active-facets__button-inner button button--tertiary">
+                            {{ value.label | escape }}
+                            {% render 'icon-close' %}
+                        </span>
+                    </a>
+                </facet-remove>
+
+            {% endif %}
+
+        {%- endfor -%}
+
+        {% if filter.type == "price_range" %}
+            {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                
+                {%- assign activeFacets = activeFacets | plus: 1 -%}
+                
+                <facet-remove>
+                    <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light active-facets__button--hidden">
+                        <span class="active-facets__button-inner button button--tertiary">
+                            {%- if filter.min_value.value -%}{{ filter.min_value.value | money }}{%- else -%}{{ 0 | money }}{%- endif -%}-{%- if filter.max_value.value -%}{{ filter.max_value.value | money }}{%- else -%}{{ filter.range_max | money }}{%- endif -%}
+                            {% render 'icon-close' %}
+                        </span>
+                    </a>
+                </facet-remove>
+            {%- endif -%}
+        {% endif %}
+
+    {%- endfor -%}
+    <div class="filters__applied">
+
+        {% if activeFacets == 1 %} 
+            {{ activeFacets }} Filter
+        {% else %} 
+            {{ activeFacets }} Filters
+        {% endif %}
+        
+        <a href="{{ collection.url }}" class="filters__clear-all" aria-label="Clear All Filters">Clear All</a>
+        
+    </div>
+    <div id="activeFacetsCount" class="active-facets__count" data-count="{{ activeFacets }}"></div>
+
+</div>

@@ -1,0 +1,76 @@
+{{ 'instagram.css' | asset_url | stylesheet_tag }}
+
+<div data-section class="instagram {% unless section.settings.full_width %}container page-container{% endunless %}">
+
+    <div class="instagram__heading">
+        <h2 class="instagram__title">{{ section.settings.title }}</h2>
+        <div class="instagram__description">
+            {{ section.settings.description }}
+            <a class="instagram__link" href="{{ section.settings.url }}">{{ section.settings.link_text }}</a>
+        </div>
+    </div>
+
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="{{ section.settings.ID_instagram }}"></div> 
+
+</div>
+
+{% schema %}
+{
+  "name": "Instagram",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Heading"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "@260la"
+    },
+    {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Anticipated Sales. Beloved Brands. Every Week!"
+    },
+    {
+        "type": "header",
+        "content": "Link"
+    },
+    {
+        "type": "text",
+        "id": "link_text",
+        "label": "Link text",
+        "default": "Follow us"
+    },
+    {
+        "type": "url",
+        "id": "link_url",
+        "label": "Link url"
+    },
+    {
+        "type": "header",
+        "content": "Content"
+    },
+    {
+        "type": "text",
+        "id": "ID_instagram",
+        "label": "ID instagram"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Full Width"
+    }
+  ],
+  "presets": [
+  {
+      "name": "Instagram"
+  }
+  ]
+}
+{% endschema %}
+

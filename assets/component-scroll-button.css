@@ -1,0 +1,28 @@
+.scroll-button {
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    display: none;
+    text-decoration: none;
+}
+
+.scroll-button.active {
+    display: block;
+}
+
+.scroll-button.btn-link:hover {
+    text-decoration: none;
+}
+
+.scroll-button span {
+    border-bottom: 1px solid;
+}
+
+.scroll-button svg {
+    transform: rotate(90deg);
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    right: 6px;
+}

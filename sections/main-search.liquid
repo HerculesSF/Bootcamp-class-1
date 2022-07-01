@@ -1,0 +1,86 @@
+
+{{ 'page-search.css' | asset_url | stylesheet_tag }}
+
+{% paginate search.results by 24 %}
+
+<div class="page-container">
+
+  <div class="container">
+
+    <div class="search">
+
+        <div class="search__heading-wrapper">
+            {% if search.performed == false %}
+                <h1 class="h1 search__title--no-result">{{ 'general.search.title' | t }}</h1>
+            {% else %}
+                <h1 class="h1 {% unless search.results_count > 0 %}search__title--no-result{% endunless %}">
+                    <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
+                    {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+                </h1>
+            {% endif %}
+        </div>
+
+        <div class="search-bar-wrapper {% if search.performed == false or search.results_count == 0 %}no-search{% endif %}">
+            {% render 'search-bar' %}
+        </div>
+
+        {% if search.performed %}
+
+            {% if search.results_count > 0 %}  
+
+                {% render 'filters', search_page_filter: true %}
+
+                <div class="search__header">
+                    <p class="search__filters-product-count" data-collection-product-qty data-collection-filter-product-qty>
+                        {% if search.results_count == 1 %}
+                            Showing <b>{{ search.results_count }}</b> result for "{{ search.terms }}"
+                        {% else %}
+                            Showing <b>{{ search.results_count }}</b> results for "{{ search.terms }}"
+                        {% endif %}
+                    </p>
+
+                    <div class="search__filters">
+                        <button class="search__filters-button" data-button-filter>Filter & Sorting <span class="count-bubble" data-filter-count="0"></span></button>
+                    </div>
+                </div>
+
+                <div id="CollectionProductGrid" class="product-grid__wrapper">
+                    <div class="product-grid product-grid--{{settings.line_size}}" id="main-collection-product-grid" data-id="{{ section.id }}">
+                        {% for item in search.results %}
+                            {% if item.object_type == 'product' %}
+                                <div class="product-grid__item product-grid__item--{{settings.line_size}}">
+                                    {% render 'product-card', product: item, vendor: true, quickview: true, customAspectRatio: 1 %} 
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            no results
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        <div class="search__footer">
+            <div class="search__breadcrumbs hidden__mobile hidden__tablet {% unless search.results_count > 0 %}hidden{% endunless %}">
+                {% render 'breadcrumbs' %}
+            </div>
+            {% if paginate.pages > 1 %}
+                {% render 'pagination', paginate: paginate %}
+            {% endif %}
+        </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endpaginate %}
+
+{% schema %}
+{
+  "name": "Page Search",
+  "tag": "section",
+  "class": "spaced-section"
+}
+{% endschema %}

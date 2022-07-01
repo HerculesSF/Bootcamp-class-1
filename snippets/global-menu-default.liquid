@@ -1,0 +1,67 @@
+{% for level1 in linklists[menu].links %}
+
+    {% if level1.levels > 0 %}
+
+        <li class="global-menu__level1">
+
+            {% if level1.levels > 0 %}
+                {%- assign menu_title = level1.title | handleize | remove: "-span-coming-soon-span" -%}
+
+                <a href="{{ level1.url }}" data-accordion-heading data-menu="{{menu_title}}">{{ level1.title }}</a>
+
+                <ul data-accordion-content data-accordion-submenu class="hidden">
+                
+                    {% for level2 in level1.links %}
+
+                        <li class="global-menu__level2">
+
+                            {% if level2.levels > 0 %}
+                                {%- assign menu_title = level2.title |  handleize  | remove: "-span-coming-soon-span"   -%}
+
+                                <a href="{{ level2.url }}" data-accordion-heading data-menu-level2="{{menu_title}}">{{ level2.title }}</a>
+
+                                <ul data-accordion-content class="hidden">
+                    
+                                    {% for level3 in level2.links %}
+                                        {%- assign menu_title = level3.title | handleize  | remove: "-span-coming-soon-span"  -%}
+
+                                        <li class="global-menu__level3">
+                                            <a href="{{ level3.url }}" data-menu-level3="{{menu_title}}">{{ level3.title }}</a>
+                                        </li>
+                                
+                                    {% endfor %}
+
+                                </ul>
+
+                            {% else %}
+                                {%- assign menu_title = level2.title | handleize  | remove: "-span-coming-soon-span"  -%}
+
+                                <a href="{{ level2.url }}" data-menu-level2="{{menu_title}}">{{ level2.title }}</a>
+                        
+                            {% endif %}
+
+                        </li>
+                    
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+                {%- assign menu_title = level1.title | handleize  | remove: "-span-coming-soon-span"  -%}
+
+                <a href="{{ level1.url }}" data-menu="{{menu_title}}">{{ level1.title }}</a>
+
+            {% endif %}
+
+        </li>
+        
+    {% else %}
+        {%- assign menu_title = level1.title | handleize  | remove: "-span-coming-soon-span"  -%}
+
+        <li class="global-menu__level1">
+            <a href="{{ level1.url }}" data-menu="{{menu_title}}">{{ level1.title }}</a>
+        </li>
+        
+    {% endif %}
+    
+{% endfor %}

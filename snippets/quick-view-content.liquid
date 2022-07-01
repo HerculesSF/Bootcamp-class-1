@@ -1,0 +1,55 @@
+{%- capture quick_view_content_layout -%}
+
+    <div class="quick-view__content">
+
+      <div class="quick-view__image-wrapper [[loading]]">
+        <div class="carousel quick-view__carousel swiper" data-slide-init>
+          <div class="swiper-wrapper">
+            [[productImage]]
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev transparent-button"></div>
+          <div class="swiper-button-next transparent-button"></div>
+        </div>
+      </div>
+
+      <div class="quick-view__text-container">
+
+        <div class="quick-view__name">[[productTitle]]</div>
+
+        <price-component data-handle="[[productHandle]]" class="quick-view__price">
+          [[productPrice]]
+        </price-component>
+
+      </div>
+
+      <form class="quick-view__form" action="/cart/add" method="post" id="product_form_[[productId]]" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="novalidate" data-product-form>
+        
+        <input type="hidden" name="form_type" value="product">
+        
+        <input type="hidden" name="utf8" value="✓">
+
+        {% comment %} <input type="hidden" name="id" value=[[variant]]> {% endcomment %}
+        <variant-selector data-handle="[[productHandle]]"></variant-selector>
+        
+        <component-swatch data-handle="[[productHandle]]"></component-swatch>
+
+        <div class="quick-view__quantity">
+          {% render 'quantity-selector', value: 1, name: 'quantity' %}
+        </div>
+
+        <component-addtocart data-handle="[[productHandle]]">
+            <button type="submit" name="add" class="btn btn-secondary">
+                {{ 'products.product.add_to_cart' | t }}
+            </button>
+        </component-addtocart>
+
+        <a class="quick-view__details" href="/products/[[productHandle]]">{{ 'products.quick_view.details' | t }}</a>
+      
+      </form>
+
+    </div>
+
+{%- endcapture -%}
+{%- assign str = '}}' -%}
+{{- quick_view_content_layout | json | replace: '[[', '{{' | replace: ']]', str -}}

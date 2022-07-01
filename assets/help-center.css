@@ -1,0 +1,49 @@
+.help__container {
+  padding: 17px;
+  margin: 30px auto;
+}
+
+.help__header {
+  text-align: center;
+  padding: 10px 0 50px 0;
+}
+
+
+@media (max-width: 599px) { 
+  .help__header-description {
+    padding: 0 19px;
+    text-align: left;
+  }
+}
+
+.help__content {
+  display: flex;
+  gap: 20px;
+  width: auto;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.help__item {
+  background-color: #ededed;
+  width: 290px;
+  height: 400px;
+  text-align: center;
+  padding: 40px 7px;
+}
+
+.help__item-link{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.help__item-image{
+  min-height: 130px;
+}
+
+.help__item-description {
+  padding: 15px;
+}

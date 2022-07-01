@@ -1,0 +1,53 @@
+
+.active-facets {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 -5px;
+}
+
+a.active-facets__button {
+    color: var(--color-text);
+    border-radius: 20px;
+    font-size: 12px;
+    min-height: 0;
+    min-width: 0;
+    padding: 10px 30px 10px 12px;
+    margin: 0px 5px 15px;
+    text-decoration: none;
+    line-height: 12px;
+    display: block;
+    position: relative;
+}
+
+a.active-facets__button:not(.focus-visible) {
+    box-shadow: 0 0 0 0.1rem var(--color-text);
+}
+  
+a.active-facets__button:hover {
+    background: #f2f2f2;
+}
+  
+.active-facets__button svg {
+    width: 16px;
+    margin: 0;
+    pointer-events: none;
+    line-height: 16px;
+    height: 16px;
+    position: absolute;
+    top: 8px;
+    right: 9px;
+}
+
+.active-facets__button.disabled,
+.mobile-facets__clear.disabled {
+    pointer-events: none;
+}
+
+[data-filter-count='1'].active-facets .active-facets__button-remove-all,
+[data-filter-count='0'].active-facets {
+    display: none;
+}
+
+.active-facets__button--hidden{
+    display: none !important;
+}

@@ -1,0 +1,116 @@
+{% assign bannerCount = 1 %}
+
+{% if settings.line_size contains 'quarter' %}
+    {% assign breaking = 18 %}
+{% else %}
+    {% assign breaking = 19 %}
+{% endif %}
+
+{% for block in section.blocks %}
+
+    {% if  block.settings.collection_name == collection.title %}
+
+        {% for product in collection.products %}
+
+            {% assign productCount = productCount | plus: 1 %}
+
+            <div class="product-grid__item product-grid__item--{{settings.line_size}}">
+                {% render 'product-card', product: product, quickview: true %}
+            </div>
+
+            {% if  productCount == 10 %}
+                {% assign bannerCollection = "collection_" | append: bannerCount %}
+                {% assign bannerImage = "banner_image_" | append: bannerCount %}
+            
+                {% assign bannerCollection = block.settings[bannerCollection] %}
+
+                {% if  bannerCount < 8 %}
+        
+                    {% assign bannerCount = bannerCount | plus: 1  %}
+        
+                {% else %}
+        
+                    {% assign bannerCount = 1  %}
+        
+                {% endif %}
+    
+
+                <div class="product-grid__item product-grid__item--large product-grid__item--large-{{settings.line_size}}">
+
+                    {% render 'collection-banner',
+                    collection_link: bannerCollection.url,
+                    collection_title: bannerCollection.title,
+                    collection_image: block.settings[bannerImage],
+                    shop_now: "Shop Now" %}
+                    
+                </div>
+
+            {% elsif  productCount == breaking %} 
+
+                {% assign bannerCollection = "collection_" | append: bannerCount %}
+                {% assign bannerImage = "banner_image_" | append: bannerCount %}
+            
+                {% assign bannerCollection = block.settings[bannerCollection] %}
+
+                {% if  bannerCount < 8 %}
+        
+                    {% assign bannerCount = bannerCount | plus: 1  %}
+
+                {% else %}
+
+                    {% assign bannerCount = 1  %}
+
+                {% endif %}
+
+                <div class="product-grid__item product-grid__item--large product-grid__item--large-{{settings.line_size}} hidden__mobile">
+
+                    {% render 'collection-banner',
+                    collection_link: bannerCollection.url,
+                    collection_title: bannerCollection.title,
+                    collection_image: block.settings[bannerImage],
+                    shop_now: "Shop Now" %}
+
+                </div>
+
+            {% elsif  productCount == 20 %}
+                {% assign productCount = 0 %}
+                
+                {% assign bannerCollection = "collection_" | append: bannerCount %}
+                {% assign bannerImage = "banner_image_" | append: bannerCount %}
+            
+                {% assign bannerCollection = block.settings[bannerCollection] %}
+
+                {% if  bannerCount < 8 %}
+        
+                    {% assign bannerCount = bannerCount | plus: 1  %}
+
+                {% else %}
+
+                    {% assign bannerCount = 1  %}
+
+                {% endif %}
+
+
+                <div class="product-grid__item product-grid__item--large hidden__desktop hidden__tablet">
+
+                    {% render 'collection-banner',
+                    collection_link: bannerCollection.url,
+                    collection_title: bannerCollection.title,
+                    collection_image: block.settings[bannerImage],
+                    shop_now: "Shop Now" %}
+
+                </div>
+                
+            {% endif %}
+
+        {% else %}
+
+            <div class="product-grid__no-products">
+                <p>{{ 'collections.filters.no_products_message' | t }}</p>
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endfor %}

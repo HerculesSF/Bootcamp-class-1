@@ -1,0 +1,58 @@
+<div class="search-bar">
+
+    <predictive-search>
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search-bar__form">
+            <div class="search-bar__input-wrapper">
+                <label for="Search" class="visually-hidden">Search</label>
+                <input
+                    id="Search"
+                    data-search-input
+                    type="search"
+                    name="q"
+                    class="search-bar__input" 
+                    placeholder="Search"
+                    value="{{ search.terms | escape }}"
+                    autocomplete="off"
+                    {%- if settings.predictive_search_enabled -%}
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-owns="predictive-search-results-list"
+                    aria-controls="predictive-search-results-list"
+                    aria-haspopup="listbox"
+                    aria-autocomplete="list"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    {%- endif -%}
+                >
+                <input name="options[prefix]" type="hidden" value="last">
+                <input type="hidden" name="type" value="product" />
+
+                {%- if settings.predictive_search_enabled -%}
+                    <div id="predictive-search" tabindex="-1" class="instant-search"></div>
+                {%- endif -%}
+
+            </div>
+            <div class="search-bar__submit-wrapper">
+                <button class="search-bar__submit btn-link" type="submit">
+                    {% render 'icon-search' %}
+                    <span class="visually-hidden">Search</span>
+                </button>
+            </div>
+            <div class="search-bar__actions">
+                <button type="button" class="search-bar__close btn-link" data-search-close>
+                    {% render 'icon-close' %}
+                    <span class="visually-hidden">Close</span>
+                </button>
+            </div>
+        </form>
+    </predictive-search>
+
+    <div class="search-bar__overlay global-overlay" data-search-overlay-close></div>
+</div>
+
+<script>
+    window.predictive_search_url = '{{ routes.predictive_search_url }}';
+</script>
+
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>

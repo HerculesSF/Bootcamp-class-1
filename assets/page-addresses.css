@@ -1,0 +1,114 @@
+.addresses-template {
+    text-align: center;
+    margin: 50px 0 100px;
+}
+
+.addresses-template__title {
+    margin-bottom: 0;
+}
+
+.addresses-template__header {
+    margin-bottom: 50px;  
+}
+
+.addresses-template__return {
+    margin: 16px 0 24px;
+}
+
+.addresses-template__elem--full-width {
+    width: 100%;
+}
+
+.addresses-template__btn-add-address {
+    padding: 10px 20px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.addresses-template__new-address {
+    margin: 40px auto 50px;        
+}
+
+.addresses-template__grid {
+    padding: 0;
+}
+
+.addresses-template__grid-item {
+    margin-bottom: 50px;
+    list-style-type: none;
+}
+
+.addresses-template__edit-item-options {
+    text-align: left;
+}
+
+.addresses-template__buttons {
+    display: flex;
+    justify-content: center;
+
+}
+
+.addresses-template__buttons .btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-width: 60px;
+    font-weight: normal;
+    margin: 0 2px;
+}
+
+
+.addresses-template__default {
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--color-primary);
+}
+
+.addresses-template + p {
+    margin-top: 2px;
+}
+
+.addresses-template__form {
+    max-width: 340px;
+    margin: 40px auto 0;
+    display: none;
+}
+
+.addresses-template__form.active {
+    display: block;
+}
+
+.addresses-template__form input,
+.addresses-template__form select {
+    max-width: 100%;
+}
+
+.addresses-template__form label {
+    text-align: left;
+}
+
+@media (min-width: 900px) {
+    .addresses-template {
+        margin-bottom: 120px;
+    } 
+
+    .addresses-template__form{
+        max-width: 700px;
+
+    }
+    
+    .addresses-template__form input:not([type=checkbox]),
+    .addresses-template__form  select {
+        min-width: 340px;
+    }
+    
+    .addresses-template__form--half-width-container {
+        margin-left: -20px;
+        display: flex;
+    }
+
+    .addresses-template__form--half-width {
+        padding-left: 20px;
+    }
+
+}

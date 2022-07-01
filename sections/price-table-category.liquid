@@ -1,0 +1,62 @@
+<div id="price-table">
+  {% render 'price-table-category' %}
+</div>
+
+{% schema %}
+{
+  "name": "Price Table Category",
+  "tag": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading:",
+        "default": "Price Table"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Full Width"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings":[
+          {
+              "type": "text",
+              "id": "heading",
+              "label": "Heading"
+          },
+          {
+              "type": "text",
+              "id": "price",
+              "label": "Price"
+          },
+          {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+          },
+          {
+              "type": "url",
+              "id": "link",
+              "label": "Link"
+          }
+      ]
+    }
+  ],
+  "presets": [
+  {
+      "name": "Price Table Category",
+      "blocks": [
+      {
+        "type": "item"
+      }
+    ]
+  }
+  ]
+}
+{% endschema %}

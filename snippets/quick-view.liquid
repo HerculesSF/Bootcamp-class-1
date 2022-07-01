@@ -1,0 +1,13 @@
+<quick-view class="quick-view">
+  <div class="quick-view__container" data-quick-view-container>
+    <button class="btn-link quick-view__close" aria-label="Close" data-quick-view-close>{% render 'icon-close' %}</button>
+  </div>
+  
+  <div class="quick-view__overlay global-overlay" data-quick-view-close></div>
+</quick-view>
+
+<script>
+  var quickViewTemplate = {
+    'quick_view_content_layout': {% render 'quick-view-content', layout: 'quick_view_content_layout'%}
+	};
+</script> 

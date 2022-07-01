@@ -1,0 +1,9 @@
+<script src="{{ 'component-addtocart.js' | asset_url }}" defer="defer"></script>
+
+<script>
+
+    window.theme = window.theme || {};
+    window.theme.addToCart = {};
+    window.theme.addToCart.template = {% render 'component-addtocart-template', layout: 'template_content'%}
+
+</script>

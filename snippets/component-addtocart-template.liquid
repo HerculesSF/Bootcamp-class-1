@@ -1,0 +1,16 @@
+{%- capture template_content -%}
+
+    <div class="product-addtocart__button--out-of-stock" data-outofstock-content>
+        {{ 'products.product.sold_out' | t }}
+    </div>
+
+    <div class="product-addtocart__button--add-to-cart-content" data-add-to-card-content>
+        {% render 'icon-loading' %}
+        {{ 'products.product.add_to_cart' | t }}
+    </div>
+    
+{%- endcapture -%}
+
+{%- assign str = '}}' -%}
+
+{{- template_content | json | replace: '[[', '{{' | replace: ']]', str -}}

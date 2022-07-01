@@ -1,0 +1,73 @@
+ {% render 'help-center-main' %}
+
+{% schema %}
+{
+  "name": "Help Center",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "label": "Title",
+      "type": "text",
+      "id": "title"
+    },
+    {
+      "label": "Description",
+      "type": "text",
+      "id": "description"
+    },
+    {
+      "label": "Opening Hours",
+      "type": "text",
+      "id": "opening_hours"
+    },
+    {
+      "label": "Suport Email",
+      "type": "text",
+      "id": "suport_email"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Help Center Items",
+      "settings": [
+        {
+          "label": "Image",
+          "type": "image_picker",
+          "id": "category_image"
+        }, 
+        {
+          "label": "Title",
+          "type": "text",
+          "id": "category_title"
+        },
+        {
+          "label": "Description",
+          "type": "richtext",
+          "id": "category_description"
+        },
+        {
+          "label": "Q&A Page",
+          "type": "url",
+          "id": "page_link"
+        },
+        {
+          "label": "Suport Contact",
+          "type": "checkbox",
+          "id": "suport_contact",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+  {
+      "name": "Help Center"
+  }
+  ]
+}
+{% endschema %}

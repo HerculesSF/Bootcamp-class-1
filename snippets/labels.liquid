@@ -1,0 +1,51 @@
+{% for tag in product.tags %}
+    {% if tag contains 'label' %}
+        <div class="label__percentage label__content hidden">{{ tag | split: ':'  | last }}</div>
+    {% endif %}
+{% endfor %}
+
+{% if sale == "percentage" %}
+    {% if product.price_varies %}
+        {%- assign max_percentage = 0 -%}
+
+        {% for variant in product.variants %}
+
+            {%- if variant.compare_at_price > variant.price and variant.available -%}
+
+                {%- assign sale_difference = variant.compare_at_price | minus: variant.price | divided_by: 100 -%}
+                {%- assign variant_price = variant.compare_at_price | divided_by: 100 -%}
+                {%- assign sale_percentage = sale_difference | times: 100 | divided_by: variant_price -%}
+
+                {% if sale_percentage >  max_percentage %}
+                    {%- assign max_percentage = sale_percentage -%}
+                {% endif %}
+
+            {% endif %}
+
+        {% endfor %}
+        
+        {% if max_percentage != 0  %}     
+
+            <div class="label__percentage label__content hidden">Until {{max_percentage | prepend: '-' | append: '%'}}</div>
+            
+        {% endif %}
+
+    {% else %}
+
+        {%- if product.compare_at_price > product.price and product.available -%}
+
+            {%- assign sale_difference = product.compare_at_price | minus: product.price | divided_by: 100 -%}
+            {%- assign product_price = product.compare_at_price | divided_by: 100 -%}
+            {%- assign sale_percentage = sale_difference | times: 100 | divided_by: product_price | prepend: '-' | append: '%' -%}
+
+            <div class="label__percentage label__content hidden">{{sale_percentage}}</div>
+
+        {%- endif -%}
+
+    {%- endif -%}
+
+{% else %}
+
+    <div class="label__content">{{sale}}</div>
+
+{%- endif -%}

@@ -1,0 +1,137 @@
+{%- if predictive_search.performed -%}
+
+  {% if settings.predictive_search_display_product_type %}
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <div class="instant-search-dictionary">
+        <div class="instant-search-dictionary__heading">{{ 'general.instant_search.dictionary_heading' | t }}</div>
+        <ul class="instant-search-dictionary__results">
+          {%- for product in predictive_search.resources.products limit: 2 -%}
+            <li class="instant-search-dictionary__item">
+              <a class="instant-search-dictionary__item-link" href="{{ product.url }}" aria-label="{{ product.title }}">
+                <span class="instant-search-dictionary__item-heading">{{ product.title }}</span>
+              </a>
+            </li>
+        {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  {% endif %}
+  <!-- Suggestions -->
+  <div class="instant-search-suggestions">
+
+    <!-- Pages -->
+    {% if settings.predictive_search_display_page_type %}
+      {%- if predictive_search.resources.pages.size > 0 -%}
+        <div class="instant-search-suggestions__wrapper">
+          <div class="instant-search-suggestions__heading">{{ 'general.instant_search.pages_heading' | t }}</div>
+          <ul class="instant-search-suggestions__results">
+            {%- for page in predictive_search.resources.pages -%}
+              <li class="instant-search-suggestions__item">
+                <a class="instant-search-suggestions__item-link" href="{{ page.url }}" aria-label="{{ page.title }}">
+                  <div class="instant-search-suggestions__item-text-wrapper">
+                    <div class="instant-search-suggestions__item-heading">{{ page.title }}</div>
+                  </div>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <!-- Products -->
+    {% if settings.predictive_search_display_product_type %}
+      {%- if predictive_search.resources.products.size > 0 -%}
+        <div class="instant-search-suggestions__wrapper">
+          <div class="instant-search-suggestions__heading">{{ 'general.instant_search.products_heading' | t }}</div>
+          <ul class="instant-search-suggestions__results">
+            {%- for product in predictive_search.resources.products -%}
+              <li class="instant-search-suggestions__item">
+                <a class="instant-search-suggestions__item-link" href="{{ product.url }}" aria-label="{{ product.title }}">
+                  <div class="instant-search-suggestions__item-image-wrapper">
+                    <img class="instant-search-suggestions__item-image" src="{{ product.featured_media | img_url: '200x' }}" data-src="{{ product.featured_media | img_url: '200x' }}" alt="{{ product.featured_media.alt }}">
+                  </div>
+                  <div class="instant-search-suggestions__item-text-wrapper">
+                    {%- if settings.predictive_search_show_vendor -%}
+                      <div class="instant-search-suggestions__brand">{{ product.vendor }}</div>
+                    {%- endif -%}
+                    <div class="instant-search-suggestions__item-heading">{{ product.title }}</div>
+                    {%- if settings.predictive_search_show_price -%}
+                      <div class="instant-search-suggestions__price">{{product.price | money }} <span class="instant-search-suggestions__old-price">{{product.compare_at_price | money }}</span></div>
+                    {%- endif -%}
+                  </div>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {% endif %}
+
+    <!-- Articles -->
+    {% if settings.predictive_search_display_article_type %}
+      {%- if predictive_search.resources.articles.size > 0 -%}
+        <div class="instant-search-suggestions__wrapper">
+          <div class="instant-search-suggestions__heading">{{ 'general.instant_search.articles_heading' | t }}</div>
+          <ul class="instant-search-suggestions__results">
+            {%- for article in predictive_search.resources.articles -%}
+              <li class="instant-search-suggestions__item">
+                <a class="instant-search-suggestions__item-link" href="{{ article.url }}" aria-label="{{ article.title }}">
+                  {% if article.image != blank %}
+                    <div class="instant-search-suggestions__item-image-wrapper">
+                      <img class="instant-search-suggestions__item-image" src="{{ article.image | img_url: '200x' }}" data-src="{{ article.image | img_url: '200x' }}" alt="{{ article.image.alt }}">
+                    </div>
+                  {% endif %}
+                  <div class="instant-search-suggestions__item-text-wrapper">
+                    <div class="instant-search-suggestions__item-heading">{{ article.title }}</div>
+                  </div>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <!-- Collections -->
+    {% if settings.predictive_search_display_collection_type %}
+      {%- if predictive_search.resources.collections.size > 0 -%}
+        <div class="instant-search-suggestions__wrapper">
+          <div class="instant-search-suggestions__heading">{{ 'general.instant_search.collections_heading' | t }}</div>
+          <ul class="instant-search-suggestions__results">
+            {%- for collection in predictive_search.resources.collections -%}
+              <li class="instant-search-suggestions__item">
+                <a class="instant-search-suggestions__item-link" href="{{ collection.url }}" aria-label="{{ collection.title }}">
+                  {% if collection.featured_image != blank %}
+                    <div class="instant-search-suggestions__item-image-wrapper">
+                      <img class="instant-search-suggestions__item-image" src="{{ collection.featured_image | img_url: '200x' }}" data-src="{{ collection.featured_image | img_url: '200x' }}" alt="{{ article.featured_image.alt }}">
+                    </div>
+                  {% endif %}
+                  <div class="instant-search-suggestions__item-text-wrapper">
+                    <div class="instant-search-suggestions__item-heading">{{ collection.title }}</div>
+                  </div>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+  </div>
+
+  <!-- Footer -->
+  <div class="instant-search__footer">
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <button class="instant-search-suggestions__view-all" aria-label="{{ 'general.instant_search.view_all' | t }}"><span>{{ 'general.instant_search.view_all' | t }}</span>{% render 'icon-arrow' %}</button>
+      {% if settings.predictive_search_show_store_Events %}
+        <div class="instant-search-events">
+          <a class="instant-search-events__link" href="{{ settings.predictive_search_store_events_url}}" aria-label="{{ settings.predictive_search_store_events_label }}">{{settings.predictive_search_store_events_label}}</a>
+        </div>
+      {% endif %}
+    {% else %}
+      <p class="instant-search__no-result" >{{ 'general.search.no_results' | t: terms: predictive_search.terms }}</p>
+    {% endif %}
+  </div>
+
+{%- endif -%}

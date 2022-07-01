@@ -1,0 +1,332 @@
+{{ 'page-cart.css' | asset_url | stylesheet_tag }}
+
+<page-cart data-cart-page>
+
+    <div class="page-container cart-page">
+       
+      <div class="container">
+
+        {% if cart.item_count > 0 %}
+
+          <h1 class="cart-page__heading">{{ 'cart.title' | t }}</h1>
+          <span class="cart-page__error-message" data-error-message></span>
+
+          {%- comment -%} Form {%- endcomment -%}
+          <form action="/cart" method="post" novalidate class="cart-page__form">
+            
+            <div class="cart-page__form-products">
+
+              <table class="cart-page__table">
+
+                <thead class="cart-page__row cart-page__table-head">
+                  <tr>
+                    <th colspan="2">{{ 'cart.headings.product' | t }}</th>
+                    <th>{{ 'cart.headings.price' | t }}</th>
+                    <th>{{ 'cart.headings.quantity' | t }}</th>
+
+                    {%- comment -%}
+                    <th>{{ 'cart.headings.total' | t }}</th>
+                    {%- endcomment -%}
+                  </tr>
+                </thead>
+    
+                <tbody class="cart-page__table-body">
+    
+                  {% for item in cart.items %}
+
+                  {%- assign sale = false -%}
+                  {%- if item.variant.compare_at_price > item.price -%}
+                    {%- assign sale = true -%}
+                  {%- endif -%}
+    
+                    <tr class="cart-page__row">
+    
+                      {%- comment -%} Product Information {%- endcomment -%}
+                      <td colspan="2" class="cart-page__td-description">
+                        <div class="cart-page__product-information">
+                          <div class="cart-page__product-image">
+                            <a href="{{ item.url | within: collections.all }}">
+                              <img src="{{ item | img_url: '480x' }}" alt="{{ item.title | escape }}">
+                            </a>
+                            
+                            {%- comment -%} Remove Button - Mobile {%- endcomment -%}
+                            <a class="cart-page__product-remove hide-tablet" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+                          </div>
+    
+                          <div class="cart-page__product-description">
+                            <a href="{{ item.url | within: collections.all }}">
+                              <span class="cart-page__product-title" href="{{ item.url }}">{{ item.product.title }}</span>
+                            </a>
+                            
+                            <div class="cart-page__product-options">
+    
+                              {%- comment -%} Variant Options {%- endcomment -%}
+                              {% for option in item.options_with_values %}
+                                <span>{{ option.name }}: {{ option.value }}</span>
+                              {% endfor %}
+
+                              {% for property in item.properties %}
+                                <span>{{ property.first }}: {{ property.last }}</span>
+                              {% endfor %}
+  
+                            </div>
+
+                            <div class="cart-page__label hidden__mobile">
+                              {% capture sale_text %}
+                                  {{ 'products.product.on_sale' | t }}
+                              {% endcapture %}
+
+                              {% render 'labels', sale: sale_text, product: item.product %}
+                            </div>
+                            
+                            {% if item.properties.size > 0 %}
+                              <div class="cart-page__product-properties">
+                                {% for propertie in item.properties %}
+                                  <span>{{ propertie | first | replace: "_", " " }}: {{ propertie | last }}</span><br>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+
+                            <div class="hide-tablet">
+
+                              <div class="cart-page__product-price">
+
+                                <span class="cart-item__price-final">{{ item.final_price | money }}</span>
+
+                                {% if sale %}
+                                  <div class="cart-item__original-price"><s>{{ item.variant.compare_at_price | money }}</s></div>
+                                {% endif %}
+                                {%- comment -%}
+                                <div class="cart-item__total-price" data-product-final-price="{{ item.id }}">
+                                  {{ item.line_price | money }}
+                                  {% for discount in item.discounts %}
+                                    {{ discount.title }}
+                                  {% endfor %}
+                                </div>
+                                {%- endcomment -%}
+                              </div>
+
+                              <div class="cart-page__label cart-page__label--mobile">
+                                {% capture sale_text %}
+                                    {{ 'products.product.on_sale' | t }}
+                                {% endcapture %}
+
+                                {% render 'labels', sale: sale_text, product: item.product %}
+                              </div>
+
+                              <div class="cart-page__product-quantity">
+                                {% render 'quantity-selector', label: item.quantity, value: item.quantity, name: 'updates[]', id: item.id %}
+                              </div>
+                            </div>
+    
+                          </div>
+                        </div>
+                      </td>
+    
+                      {%- comment -%} Product Price {%- endcomment -%}
+                      <td class="hide-mobile">
+                        <div class="cart-page__product-price">
+
+                          <span class="cart-item__price-final">{{ item.final_price | money }}</span>
+
+                          {% if sale %}
+                            <div class="cart-item__original-price"><s>{{ item.variant.compare_at_price | money }}</s></div>
+                          {% endif %}
+
+                        </div>
+                      </td>
+    
+                      {%- comment -%} Product Quantity {%- endcomment -%}
+                      <td class="cart-page__td-quantity hide-mobile">
+                        <div class="cart-page__product-quantity">
+                          {% render 'quantity-selector', label: item.quantity, value: item.quantity, name: 'updates[]', id: item.id %}
+
+                          {%- comment -%} Remove Button{%- endcomment -%}
+                          <a class="cart-page__product-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+                        </div>
+                      </td>
+    
+                      {%- comment -%} Product Final Price 
+                      <td class="cart-item__total-price hide-mobile" data-product-final-price="{{ item.id }}">
+                        {{ item.line_price | money }}
+                        {% for discount in item.discounts %}
+                          {{ discount.title }}
+                        {% endfor %}
+                      </td>
+                      {%- endcomment -%}
+                      
+                    </tr>
+
+                  {% endfor %}
+    
+                </tbody>
+    
+              </table>
+
+            </div>
+
+            <div class="cart-page__form-buttons">
+
+              <div class="cart-page__div-buttons">
+
+                <div class="cart-page__free-shipping-bar">
+                  {% render 'progress-bar' %}
+                </div>
+
+                <span class="cart-page__summary-title">Summary</span>
+
+                <p class="cart-page__subtotal">{{ 'cart.subtotal' | t }}: <span class="wholesale-cart-total"></span> <span class="wholesale-original-cart-total" data-subtotal>{{ cart.total_price | money }}</span></p>
+
+                <div class="cart-page__buttons">
+                  
+                  {%- comment -%} Checkout Button {%- endcomment -%}
+                  <button class="cart-page__checkout-button btn btn-secondary" type="submit" name="checkout">{{ 'cart.checkout' | t }}</button>
+
+                  {%- if section.settings.allow_tax_text -%}
+                    <div class="cart-page__allow-tax-text">
+                      {%- if section.settings.custom_tax_text == '' -%}
+                        <p class="info__tax"><small>{{ 'cart.subtotal_note' | t }}</small></p>
+                      {%- else -%}
+                        <p class="info__tax"><small>{{ section.settings.custom_tax_text }}</small></p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if additional_checkout_buttons and section.settings.cart_show_additional_buttons -%}
+                    <div class="additional-checkout-buttons">
+                      <small class="additional-checkout">or</small>
+                      {{ content_for_additional_checkout_buttons }}
+                    </div>
+                  {%- endif -%}
+
+                </div>
+
+                {%- comment -%} Continue Shopping Link {%- endcomment -%}
+                <a class="cart-page__continue-shopping" href="{{ routes.all_products_collection_url }}">{{ 'cart.continue_shopping_text' | t }}</a>
+
+                <div class="cart-page__cart-extra" data-section-type="cart-template">
+
+                  {% if section.settings.allow_note or section.settings.shipping_calculator %}
+
+                    <div class="accordion" role="navigation" data-accordion>
+
+                      {%- comment -%} Note {%- endcomment -%}
+                      {%- if section.settings.allow_note -%}
+                        <div class="accordion__item note" id="NoteForSeller">
+                          <button type="button" class="accordion__heading" id="note" aria-expanded="false" aria-controls="content1" data-accordion-heading>{{ 'cart.note_title' | t }}{% render 'icon-add' %}{% render 'icon-less' %}</button>
+                          <div class="accordion__content" id="content1" role="region" aria-labelledby="note" data-accordion-content>
+                            <textarea id="note" name="note" aria-label="{{ 'cart.general.customer_note' | t }}">{{ cart.note }}</textarea>
+                          </div>
+                        </div>
+                      {%- endif -%}
+              
+                      {%- comment -%} Estimate Shipping {%- endcomment -%}
+                      {%- if section.settings.shipping_calculator -%}
+                        <div class="accordion__item show-calculator" id="ShippingCalculator">
+                          <button type="button" class="accordion__heading" id="btn1" aria-expanded="false" aria-controls="content1" data-accordion-heading>{{ 'cart.estimate_shipping_title' | t }}{% render 'icon-add' %}{% render 'icon-less' %}</button>
+                          <div class="accordion__content" id="content1" role="region" aria-labelledby="bt1" data-accordion-content>
+                            {%- assign default_country = section.settings.shipping_calculator_default_country -%}
+                            {%- include 'cart-shipping-calculator', default_country: default_country -%}
+                          </div>
+                        </div>
+                      {%- endif -%}
+
+                    </div>
+
+                  {% endif %}
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </form>
+
+        {% else %}
+        
+          {%- comment -%} Empity Message {%- endcomment -%}
+          <div class="cart-page__empty-message">
+
+            <h1>{{ 'cart.empty_cart_title' | t }}</h1>
+            <span>{{ 'cart.empty_message' | t }}</span>
+            
+            <a href="{{ routes.all_products_collection_url }}">
+              <button class="btn btn-secondary btn-icon btn-icon-after">
+                <span>{{ 'cart.continue_shopping_text' | t }}</span>{% render 'icon-arrow' %}
+              </button>
+            </a>
+          </div>
+          
+        {% endif %}
+
+      </div>
+
+    </div>
+
+</page-cart>
+
+{{ 'page-cart.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": [
+  {
+    "type": "checkbox",
+    "id": "allow_note",
+    "label": "Enable order notes",
+    "default": true
+  },
+  {
+    "type": "checkbox",
+    "id": "allow_tax_text",
+    "label": "Enable tax & shipping text",
+    "default": true
+  },
+  {
+    "type": "text",
+    "id": "custom_tax_text",
+    "label": "Custom tax text"
+  },
+  {
+    "type": "header",
+    "content": "Shipping rates calculator"
+  },
+  {
+    "type": "checkbox",
+    "id": "shipping_calculator",
+    "label": "Show shipping rates calculator",
+    "default": true
+  },
+  {
+    "type": "text",
+    "id": "shipping_calculator_default_country",
+    "label": "Shipping rates calculator default country",
+    "default": "United States",
+    "info": "If the customer is logged in, their shipping address country will replace the default."
+  },
+  {
+    "type": "header",
+    "content": "Additional checkout buttons"
+  },
+  {
+    "type": "checkbox",
+    "id": "cart_show_additional_buttons",
+    "label": "Show additional checkout options on cart",
+    "info": "Move buttons for Apple Pay, Amazon Pay and PayPal express from the first step of the checkout to the cart.",
+    "default": true
+  },
+    {
+      "type": "header",
+      "content": "Free shipping bar"
+  },
+    {
+      "type": "text",
+    "label": "Goal",
+      "id": "free_shipping_bar_goal",
+    "info": "Only numbers."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "collection",
+      "settings": {
+        "image_desktop": "shopify:\/\/shop_images\/picture.jpg",
+        "image_mobile": "shopify:\/\/shop_images\/image.jpg"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

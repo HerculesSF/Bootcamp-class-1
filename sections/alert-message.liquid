@@ -1,0 +1,98 @@
+{% assign title = null %}
+
+{% if template.name == 'collection' %}
+  {% assign title = collection.title | split: '-' | first | handleize %}
+{% elsif template.name == 'product' %}
+  {% assign title = product.vendor | handleize %}
+{% elsif template.name == 'page' %}
+  {% assign title = page.title | split: '-' | first | handleize %}
+{% endif %}
+
+{% for block in section.blocks %}
+
+  {% assign block_handle = block.settings.event_id | handleize %}
+
+  {% if block_handle == title %}
+
+    {% render 'alert-message', 
+      enable_message: block.settings.message,
+      color_bg: block.settings.color_bg, 
+      color_text: block.settings.color_text, 
+      message_link: block.settings.message_link, 
+      message_title: block.settings.message_title, 
+      message_subtitle: block.settings.message_subtitle, 
+      allow_subtitle: block.settings.allow_subtitle
+    %}
+
+  {% endif %}
+
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Alert message",
+  "class": "alert-message__section",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "name": "Event",
+      "type": "event",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "This section will change the alert bar on selected event pages and override the general alert bar settings."
+        },
+        {
+          "type": "text",
+          "id": "event_id",
+          "label": "Event name (ID)"
+        },
+        {
+          "type": "checkbox",
+          "id": "message",
+          "label": "Show alert message",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "message_title",
+          "label": "Title",
+          "default": "FREE SHIPPING"
+        },
+        {
+          "type": "checkbox",
+          "id": "allow_subtitle",
+          "label": "Use Subtitle",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "message_subtitle",
+          "label": "Subtitle",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "message_link",
+          "label": "Link",
+          "info": "Optional"
+        },
+        {
+          "type": "color",
+          "id": "color_bg",
+          "label": "Bar",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "color_text",
+          "label": "Text",
+          "default": "#FAFAFA"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

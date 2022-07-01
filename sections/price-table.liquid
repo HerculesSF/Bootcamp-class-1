@@ -1,0 +1,47 @@
+
+{% render 'price-table', title: {{section.settings.title}}%}
+
+
+{% schema %}
+{
+  "name": "Price Table",
+  "tag": "section",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading:",
+        "default": "Price Table"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "Full Width"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+  {
+      "name": "Price Table",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+  }
+  ]
+}
+{% endschema %}

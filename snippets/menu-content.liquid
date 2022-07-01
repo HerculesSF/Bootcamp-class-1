@@ -1,0 +1,41 @@
+{%- assign menu_item = menu_item | handleize -%}
+
+{%- for item in content -%}
+
+    {%- assign handle_item = item.settings.menu_item_id | handleize -%}
+
+    {%- if menu_item == handle_item -%}
+
+        {%- assign handle = item.settings.menu_content_id | handleize -%}
+
+        {%- if menu contains handle -%}
+
+            {% if item.settings.item_1_image %}
+                <div class="menu__submenu-image">
+                    {% render 'menu-content-item', image: item.settings.item_1_image,  imageHover: item.settings.item_1_image_hover, title: item.settings.item_1_title, subtitle: item.settings.item_1_subtitle, link: item.settings.item_1_link %}
+                </div>
+            {% endif %}
+            
+            {% if item.settings.item_2_image %}
+                <div class="menu__submenu-image">
+                    {% render 'menu-content-item', image: item.settings.item_2_image, imageHover: item.settings.item_2_image_hover, title: item.settings.item_2_title, subtitle: item.settings.item_2_subtitle, link: item.settings.item_2_link %}
+                </div>
+            {% endif %}
+
+            {% if item.settings.item_3_image %}
+                <div class="menu__submenu-image">
+                    {% render 'menu-content-item', image: item.settings.item_3_image, imageHover: item.settings.item_3_image_hover, title: item.settings.item_3_title, subtitle: item.settings.item_3_subtitle, link: item.settings.item_3_link %}
+                </div>
+            {% endif %}
+
+            {% if item.settings.item_4_image %}
+                <div class="menu__submenu-image">
+                    {% render 'menu-content-item', image: item.settings.item_4_image, imageHover: item.settings.item_4_image_hover, title: item.settings.item_4_title, subtitle: item.settings.item_4_subtitle, link: item.settings.item_4_link %}
+                </div>
+            {% endif %}
+            
+        {%- endif -%}
+        
+    {%- endif -%}
+    
+{%- endfor -%}

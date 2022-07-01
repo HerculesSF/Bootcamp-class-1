@@ -1,0 +1,174 @@
+{% if template == 'index' %}
+  {%- assign simpleMode = true -%}
+{% endif %}
+
+{% render 'header', menu: section.settings.main_linklist, wrapper: false, simpleMode: simpleMode, menu_content: section.blocks %}
+
+{% render 'form_modal', modal_content: section.blocks %}
+
+{% schema %}
+{
+  "name": "Header and Menu",
+  "class": "site-header site-header__section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Menu"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_content",
+      "name": "Menu content",
+      "settings":[
+        {
+          "type": "text",
+          "id": "menu_content_id",
+          "label": "Event name",
+          "info": "It needs to be exactly the same name as the collection or product vendor name."
+        },
+        {
+          "type": "text",
+          "id": "menu_item_id",
+          "label": "Menu item name",
+          "info": "It needs to be exactly the same name as the menu link name."
+        },
+        {
+          "type": "header",
+          "content": "Item - 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_1_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_1_image_hover",
+          "label": "Image Hover"
+        },
+        {
+          "type": "text",
+          "id": "item_1_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "item_1_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "item_1_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Item - 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_2_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_2_image_hover",
+          "label": "Image Hover"
+        },
+        {
+          "type": "text",
+          "id": "item_2_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "item_2_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "item_2_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Item - 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_3_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_3_image_hover",
+          "label": "Image Hover"
+        },
+        {
+          "type": "text",
+          "id": "item_3_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "item_3_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "item_3_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Item - 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_4_image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "item_4_image_hover",
+          "label": "Image Hover"
+        },
+        {
+          "type": "text",
+          "id": "item_4_title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "item_4_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "item_4_link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "form_modal",
+      "name": "Menu left modal form",
+      "settings":[
+        {
+          "type": "text",
+          "id": "menu_name",
+          "label": "Menu Name",
+          "info": "It needs to be exactly the same name as the menu"
+        },
+        {
+          "type": "text",
+          "id": "klaviyo_form",
+          "label": "Klaviyo form"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

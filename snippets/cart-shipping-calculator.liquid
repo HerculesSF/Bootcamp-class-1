@@ -1,0 +1,42 @@
+{{ 'cart-shipping-calculator.css' | asset_url | stylesheet_tag }}
+
+<cart-shipping-calculator>
+
+  <div class="cart-shipping-calculator" data-cart-shipping-calculator>
+
+    <div>
+      <p>
+        <label for="address_country">{{ 'customer.addresses.country' | t }}</label>
+        <select id="address_country" data-cart-shipping-calculator-country name="address[country]" data-provinceid="address_province"
+         data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif default_country != '' %}{{ default_country }}{% endif %}">
+         {{ country_option_tags }}
+         </select>
+      </p>
+      <p data-cart-shipping-calculator-province-container style="display:none;">
+        <label for="address_province" id="address_province_label">{{ 'customer.addresses.province' | t }}</label>
+        <select id="address_province" data-cart-shipping-calculator-province class="address_form" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+      </p>
+    </div>
+
+    <p>
+      <label for="address_zip">{{ 'customer.addresses.zip' | t }}</label>
+      <input type="text" id="address_zip" data-cart-shipping-calculator-zip name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
+    </p>
+    <input type="button" class="get-rates btn" value="{{ 'cart.shipping_calculator.calculate_shipping' | t }}" data-cart-shipping-calculator-get-rates />
+
+    <div class="cart-shipping-calculator__wrapper-response no-results" data-cart-shipping-calculator-wrapper-response></div>
+
+  </div>
+
+</cart-shipping-calculator>
+
+<script>
+  window.ShippingCalculator = {
+      shippingCalcSubmitButton: {{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' | json }},
+      shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},
+      {% if customer %}shippingCalcCustomerIsLoggedIn: true,{% endif %}
+      no_shipping_available: {{ 'We do not ship to this destination.' | json }}
+  }
+</script>
+
+{{ 'cart-shipping-calculator.js' | asset_url | script_tag }}

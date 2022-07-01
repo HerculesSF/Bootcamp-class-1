@@ -1,0 +1,90 @@
+{{ 'gallery-slider.css' | asset_url | stylesheet_tag }} 
+
+<div data-section class="gallery-slider container page-container">
+
+    {% if section.settings.title %}
+      <div class="carousel__heading-wrapper"> 
+        <h2 class="carousel__heading">{{section.settings.title}}</h2> 
+      </div>
+    {% endif %}
+
+    <swiper-slider class="swiper swiper__product-card"  
+    data-view-mobile="1.1"
+    data-view-tablet="3.2"
+    data-view-tablet-extra="3"
+    data-view-desktop="3" 
+    data-options='{ "pagination": { "el": ".swiper-pagination", "dynamicBullets": false } }' style="width: 100%;display: block;">
+
+      <div class="swiper-wrapper">
+
+          {% for block in section.blocks limit: 6 %}
+
+              <div class="swiper-slide">
+
+                  {% if block.settings.image %}
+
+                      {%- assign image_url = block.settings.image | img_url: '2000x' -%}
+
+                      <div data-zoomable>
+                        {% render 'image', src: image_url, aspect_ratio: block.settings.image.aspect_ratio, alt: block.settings.image.alt %}
+                      </div> 
+
+                  {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+
+              </div>
+
+          {% endfor %}
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+      {% if section.blocks.size > 3 %}
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      {% endif %}
+
+    </swiper-slider>
+
+</div>
+
+{% schema %}
+{
+  "name": "Gallery Slider",
+  "max_blocks": 6,
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Inside the Sale"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings":[
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+        "name": "Gallery Slider",
+        "blocks": [
+          {
+            "type": "image"
+          }
+        ]
+    }
+  ]
+}
+{% endschema %}
+

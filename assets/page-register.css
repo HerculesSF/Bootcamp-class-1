@@ -1,0 +1,111 @@
+/*
+    Register Page
+*/
+
+.register-page {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.register-page label {
+    display: none;
+}
+
+.register-page__form {
+    width: 100%;
+}
+
+.register-page input[type="password"],
+.register-page input[type="email"],
+.register-page input[type="text"] {
+    max-width: 100%;
+}
+
+.register-page .message--error {
+    color: #651818;
+    border: 1px solid #d20000;
+    background-color: #fff8f8;
+    padding: 1rem 1.3rem;
+    margin: 0 0 27.5px;
+    text-align: left;
+    width: 100%;
+}
+
+.register-page h3 {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.register-page h1,
+.register-page h2 {
+    font-size: 22px;
+    line-height: 40px;
+}
+
+.register-page h1 {
+    margin: 0 0 17.5px;
+}
+
+.register-page__links-div div a {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.field.accepts_marketing {
+    margin: 10px 0 14px 0;
+}
+
+/* @include mobile */
+@media (max-width: 599px) {
+    .register-page button {
+        width: 100%;
+    }
+
+    .register-page__links-div div button {
+        margin-bottom: 24px;
+    }
+}
+
+/* @include tablet */
+@media (min-width: 600px) {
+    .register-page {
+        padding-top: 10vw;
+        padding-bottom: 10vw;
+    }
+
+    .register-page__form {
+        max-width: 420px;
+        margin: auto;
+    }
+
+    .register-page__links-div {
+        display: flex;
+    }
+
+    .register-page__links-div div {
+        width: 50%;
+    }
+
+    .register-page__links-div div:first-child {
+        text-align: start;
+        align-self: center;
+    }
+
+    .register-page__links-div div:last-child {
+        text-align: end;
+        align-self: center;
+    }
+
+    .register-page__links-div div button {
+        min-width: 170px;
+    }
+}
+
+/* @include desktop */
+@media (min-width: 900px) {
+    .register-page {
+        padding-top: 80px;
+        padding-bottom: 5vw;
+    }
+}

@@ -1,0 +1,112 @@
+{%- comment -%} Component used into footer social links {%- endcomment -%}
+
+<div class="social-links">
+    {% if settings.social_title %}
+        <div class="social-links__title">{{ settings.social_title }}</div>
+    {% endif %}
+
+    <ul> 
+        <!-- TikTok -->
+        <li class="social-links__item">
+
+            {% if settings.social_tiktok_link %}
+                <a class="social-links__item-link" href="{{ settings.social_tiktok_link }}">
+                    {% render 'icon-tiktok' %}
+                    <span>{{ settings.social_tiktok_name }}</span>
+                </a>
+            {% else %}
+                <span class="social-links__item-link">
+                    {% render 'icon-tiktok' %}
+                    {{ settings.social_tiktok_name }}
+                </span>
+            {% endif %}
+            
+        </li>
+
+        <!-- Instagram -->
+        <li class="social-links__item">
+
+            {% if settings.social_instagram_link_NYC %}
+                <a class="social-links__item-link" href="{{ settings.social_instagram_link_NYC }}">
+                    {% render 'icon-instagram' %}
+                    <span>{{ settings.social_instagram_name_NYC }}</span>
+                </a>
+            {% else %}
+                <span class="social-links__item-link">
+                    {% render 'icon-tiktok' %}
+                    {{ settings.social_instagram_name_NYC }}
+                </span>
+            {% endif %}
+            
+        </li>
+
+        <!-- Instagram LA -->
+        <li class="social-links__item">
+
+            {% if settings.social_instagram_link_LA %}
+                <a class="social-links__item-link" href="{{ settings.social_instagram_link_LA }}">
+                    {% render 'icon-instagram' %}
+                    <span>{{ settings.social_instagram_name_LA }}</span>
+                </a>
+            {% else %}
+                <span class="social-links__item-link">
+                    {% render 'icon-tiktok' %}
+                    {{ settings.social_instagram_name_LA }}
+                </span>
+            {% endif %}
+            
+        </li>
+
+        <!-- Instagram MIA -->
+        <li class="social-links__item">
+
+            {% if settings.social_instagram_link_MIA %}
+                <a class="social-links__item-link" href="{{ settings.social_instagram_link_MIA }}">
+                    {% render 'icon-instagram' %}
+                    <span>{{ settings.social_instagram_name_MIA }}</span>
+                </a>
+            {% else %}
+                <span class="social-links__item-link">
+                    {% render 'icon-tiktok' %}
+                    {{ settings.social_instagram_name_MIA }}
+                </span>
+            {% endif %}
+        </li>
+    </ul>
+</div>
+
+<style>
+    .social-links {
+        display: flex;
+        padding-inline-start: 0;
+        margin-block-start: 0;
+        margin-block-end: 0; 
+    }
+
+    .social-links__item {
+        list-style: none;
+        margin-right: 18px;
+    }
+
+    .social-links__item:last-child {
+        margin-right: 0;
+    }
+
+    .social-links__item-link {
+        display: flex;
+    }
+
+    .social-links__item-link span {
+        text-transform: uppercase;
+    }
+
+    .social-links__item-link span:hover {
+        text-decoration: underline;
+    }
+
+    .social-links .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+</style>

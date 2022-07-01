@@ -1,0 +1,193 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "16299156787ad5bdb2": {
+      "type": "event-detail",
+      "settings": {
+        "highlighted_information": "June 30th - July 4th",
+        "heading": "Girlfriend Collective Sample Sale",
+        "additional_info": "All Sales Final. No Returns or Exchanges.",
+        "description": "<p>Join us at our Beverly Hills store from Wednesday, June 30th through Sunday, July 4th to shop minimal, luxurious, and eco-friendly active-wear at the Girlfriend Collective Sample Sale! Find wardrobe must-haves that are the best of the best without sacrificing style, sustainability, or quality.<\/p>",
+        "date_location": "<p>Wednesday 30th - July 3th: <strong>11AM - 7PM<\/strong><br\/>Sunday 4th: <strong>11AM - 5PM<\/strong><\/p><p><a href=\"\/blogs\/news\" title=\"News\">301 N Canon Drive, Beverly Hills CA 90210<\/a><\/p>",
+        "image": "shopify:\/\/shop_images\/picture.png",
+        "link_text": "Inside the Sale + Price Table",
+        "link_url": ""
+      }
+    },
+    "1629918174bbc840e7": {
+      "type": "price-table-category",
+      "blocks": {
+        "1629918174bbc840e7-0": {
+          "type": "item",
+          "settings": {
+            "heading": "Sports Bras",
+            "price": "10",
+            "image": "shopify:\/\/shop_images\/image4.png",
+            "link": "shopify:\/\/pages\/fleur-du-mal"
+          }
+        },
+        "925d14ca-b36f-42de-8c2c-57d800a82a02": {
+          "type": "item",
+          "settings": {
+            "heading": "Sports Bras",
+            "price": "15",
+            "image": "shopify:\/\/shop_images\/image3.png",
+            "link": "#"
+          }
+        },
+        "aebeb451-ae70-4a70-8327-618de6fa8e66": {
+          "type": "item",
+          "settings": {
+            "heading": "Sports Bras test",
+            "price": "145",
+            "image": "shopify:\/\/shop_images\/image2.png",
+            "link": "#"
+          }
+        },
+        "d4ff6cfa-16d9-4c74-9a1c-58cf1b4be252": {
+          "type": "item",
+          "settings": {
+            "heading": "Sports Bras",
+            "price": "14",
+            "image": "shopify:\/\/shop_images\/image1.png",
+            "link": "#"
+          }
+        },
+        "ba3a65d9-6070-4987-b5ef-92fc43198627": {
+          "type": "item",
+          "settings": {
+            "heading": "Sports Bras",
+            "price": "11",
+            "image": "shopify:\/\/shop_images\/image2.png",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "1629918174bbc840e7-0",
+        "925d14ca-b36f-42de-8c2c-57d800a82a02",
+        "aebeb451-ae70-4a70-8327-618de6fa8e66",
+        "d4ff6cfa-16d9-4c74-9a1c-58cf1b4be252",
+        "ba3a65d9-6070-4987-b5ef-92fc43198627"
+      ],
+      "settings": {
+        "heading": "Price Table",
+        "full_width": false
+      }
+    },
+    "162991819142cad334": {
+      "type": "price-table",
+      "blocks": {
+        "162991819142cad334-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2000x2800.png"
+          }
+        },
+        "c28a404f-e8d7-4119-88a4-bc6a609308a1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/price-table.png"
+          }
+        },
+        "52f61e34-9320-4fb9-9316-707168973f26": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/price-table.png"
+          }
+        },
+        "995e2a4a-3616-4bff-94e9-5ec87b0dd89a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/price-table.png"
+          }
+        },
+        "6f8cb059-39ae-430d-aa96-0dc1add1b0fa": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/price-table.png"
+          }
+        }
+      },
+      "block_order": [
+        "162991819142cad334-0",
+        "c28a404f-e8d7-4119-88a4-bc6a609308a1",
+        "52f61e34-9320-4fb9-9316-707168973f26",
+        "995e2a4a-3616-4bff-94e9-5ec87b0dd89a",
+        "6f8cb059-39ae-430d-aa96-0dc1add1b0fa"
+      ],
+      "settings": {
+        "title": "Price Table",
+        "full_width": false
+      }
+    },
+    "162991853725d055d6": {
+      "type": "gallery-slider",
+      "blocks": {
+        "162991853725d055d6-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2000x2800.png"
+          }
+        },
+        "ee694e9e-da1a-4d0b-9073-fd0867b13ae5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_d161d2b0-821e-4c87-b840-03a2f9352a18.png"
+          }
+        },
+        "25bd017d-63f0-4dfa-b94d-0b2dfe174a35": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_3ff28a87-7c4b-4b50-be1a-40a15fba1253.png"
+          }
+        },
+        "6d4250af-f1fd-4649-b242-702364388bed": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_b68a915b-c3e3-4e12-ae69-c7f2e5e76975.png"
+          }
+        },
+        "f33fe020-615f-4d35-b6a9-9ea30ce45afb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_d161d2b0-821e-4c87-b840-03a2f9352a18.png"
+          }
+        }
+      },
+      "block_order": [
+        "162991853725d055d6-0",
+        "ee694e9e-da1a-4d0b-9073-fd0867b13ae5",
+        "25bd017d-63f0-4dfa-b94d-0b2dfe174a35",
+        "6d4250af-f1fd-4649-b242-702364388bed",
+        "f33fe020-615f-4d35-b6a9-9ea30ce45afb"
+      ],
+      "settings": {
+        "title": "Inside the Sale"
+      }
+    },
+    "1629918399d3c791f7": {
+      "type": "instagram",
+      "settings": {
+        "title": "@260la",
+        "description": "Anticipated Sales. Beloved Brands. Every Week!",
+        "link_text": "Follow us",
+        "link_url": "#",
+        "ID_instagram": "elfsight-app-4af281a6-4a12-447a-9aa4-408279419d5c",
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16299156787ad5bdb2",
+    "1629918174bbc840e7",
+    "162991819142cad334",
+    "162991853725d055d6",
+    "1629918399d3c791f7"
+  ]
+}

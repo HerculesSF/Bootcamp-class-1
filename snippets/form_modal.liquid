@@ -1,0 +1,13 @@
+{% for block in section.blocks %}
+  {% if block.type == 'form_modal' %}
+    {% if block.settings.klaviyo_form != blank %}
+      {%- assign menu_title = block.settings.menu_name | handleize -%}
+      <div class="modal__container " role="dialog" aria-modal="true" data-modal data-modal-name="{{menu_title}}">
+        <div class="modal__content modal__content--default">
+            <button class="modal__close" data-modal-close aria-label="close">{% render 'icon-close' %}</button>
+            <div class="{{block.settings.klaviyo_form}}"></div>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endfor %}

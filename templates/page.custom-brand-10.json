@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "16299138906fa25002": {
+      "type": "timer",
+      "settings": {
+        "timer_title": "Fleur du Mal",
+        "timer_description": "Lorem Ipsum",
+        "timer_date": "2021-08-12 19:00",
+        "desktop_image": "shopify:\/\/shop_images\/header.png"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "16299138906fa25002",
+    "main"
+  ]
+}

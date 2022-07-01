@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "1629914762050bbd9f": {
+      "type": "coming-soon",
+      "settings": {
+        "highlighted_info": "July 6th - July 11th",
+        "heading": "Happy Socks Online Sample Sale",
+        "additional_info": "All Sales Final. No Returns or Exchanges.",
+        "description": "<p>Shop a wide selection of quirky & colorful socks that bring a pop of fun to any outfit at the Happy Socks Online Sample Sale!<\/p>",
+        "image": "shopify:\/\/shop_images\/image_5a679c2e-4a88-4307-833d-31c1209d61fd.png",
+        "notify_form_heading": "Sign up and get notify when it’s open:",
+        "klaviyo_list": "",
+        "notify_button_text": "Notify Me",
+        "link_text": "FAQ",
+        "link_url": "shopify:\/\/pages\/contact"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "1629914762050bbd9f",
+    "main"
+  ]
+}

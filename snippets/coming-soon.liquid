@@ -1,0 +1,57 @@
+{{ 'coming-soon.css' | asset_url | stylesheet_tag }}
+
+<div class="coming-soon">
+
+    <div class="coming-soon__image-wrapper">
+
+        <div class="coming-soon__image">
+
+            {% if coming_soon_image != blank %}
+
+                {% assign img_src = coming_soon_image.cloudinary_src | append: "w_1600" %}
+
+                {% render 'image', src: img_src, aspect_ratio: coming_soon_image.aspect_ratio, alt: heading %}
+
+            {% elsif coming_soon_image_section != blank %}
+
+                {% assign img_url = coming_soon_image_section | img_url: '1600x' %}
+
+                {% render 'image', src: img_url, aspect_ratio: coming_soon_image_section.aspect_ratio, alt: heading %}
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="coming-soon__text-wrapper page-container">
+
+        <span class="coming-soon__date">{{highlighted_info}}</span>
+        
+        <h1 class="h1 coming-soon__heading">{{heading}}</h1>
+
+        <span class="coming-soon__info">{{additional_info}}</span>
+
+        <div class="coming-soon__description">{{description}}</div>
+
+        {% if date_location %}
+            <div class="coming-soon__detail">
+                <span class="coming-soon__heading-detail">Date & location</span>
+                <div>{{ date_location }}</div>
+            </div>
+        {% endif %}
+
+        <div class="coming-soon__notify-form-wrapper">
+
+            <h3>{{form_heading}}</h3>
+            {% render 'coming-soon-form', form: form, formID: 'ComingSoonForm', klaviyo_list_id: klaviyo_list_id, form_button_text: form_button_text %}
+
+        </div>
+
+        {% if anchor_link != blank %}
+            <a href="{{ anchor_link }}" class="coming-soon__link">{{anchor_text}}</a>
+        {% endif %}
+
+    </div>
+
+</div>

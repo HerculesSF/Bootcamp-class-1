@@ -1,0 +1,33 @@
+{%- capture eventIndex -%}
+    {%- render 'event-index', eventName: eventName -%}
+{%- endcapture -%}
+
+{%- assign eventIndex = eventIndex | plus: 0 -%}
+
+{%- if eventIndex >= 0 -%}
+
+    {%- assign eventTitle = shop.metafields.accentuate.event_name[eventIndex] | split: ',' | first -%}
+
+    <div class="menu__submenu-image">
+
+        {% if eventUrl %}<a href="{{ eventUrl }}">{% endif %}
+
+            <div>
+                <span class="menu-content-item__image">
+                    {% for event_image in shop.metafields.accentuate.event_main_image[eventIndex] %}
+                        {%- assign eventImgUrl = event_image.cloudinary_src | append: 'w_500' -%}
+                        {% render 'image', src: eventImgUrl, aspect_ratio: event_image.aspect_ratio, alt: eventTitle %}
+                    {% endfor %}
+                </span>
+            </div>
+
+            <div class="menu__submenu-text">
+                <p class="menu__submenu-title">{{ eventTitle }}</p>
+                <p class="menu__submenu-subtitle">{%- render 'event-subtitle', index: eventIndex, eventName: shop.metafields.accentuate.event_name[eventIndex], showLiveLabel: true, showComingSoonDate: true, enableIntersectionObserver: true -%}</p>
+            </div>
+
+        {% if eventUrl %}</a>{% endif %}
+
+    </div>
+
+{%- endif -%}

@@ -1,0 +1,74 @@
+<div class="accordion accordion--inverted" role="navigation" data-accordion>
+    
+    {%- comment -%}
+    {% for n in (1..4) %}
+
+        {% assign product_details = "product_details_line_" | append: n %}
+        {% assign product_details = product.metafields.my_fields[product_details].value %}
+
+        {% if product_details != blank %}
+
+            {% assign product_details_title = product_details  | split: "\" | first  %}
+            {% assign product_details_content = product_details  | split: "\" | last  %}
+            
+            <div class="accordion__item ">
+                <button class="accordion__heading"  aria-expanded="false"  data-accordion-heading>{% render 'icon-add' %}{% render 'icon-less' %} {{ product_details_title }}</button>
+                <div class="accordion__content"  role="region" data-accordion-content>
+                    {{ product_details_content }}
+                </div>
+            </div>
+
+        {% endif %}
+
+    {% endfor %}
+    {%- endcomment -%}
+
+    {%- comment -%} Materials & Care {%- endcomment -%}
+    {% if product.metafields.accentuate.details_materials__care %}
+        <div class="accordion__item ">
+            <button class="accordion__heading"  aria-expanded="false"  data-accordion-heading>{% render 'icon-add' %}{% render 'icon-less' %} {{ 'products.product_details.accordion_title' | t }}</button>
+            <div class="accordion__content"  role="region" data-accordion-content>
+                {{ product.metafields.accentuate.details_materials__care }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% for event_name in shop.metafields.accentuate.event_name %}
+
+        {% if event_name == product.vendor %}
+
+            {%- comment -%} Meet the Brand {%- endcomment -%}
+            {% if shop.metafields.accentuate.event_meet_the_brand[forloop.index0] %}
+                <div class="accordion__item ">
+                    <button class="accordion__heading"  aria-expanded="false"  data-accordion-heading>{% render 'icon-add' %}{% render 'icon-less' %} Meet the Brand</button>
+                    <div class="accordion__content"  role="region" data-accordion-content>
+                        {{ shop.metafields.accentuate.event_meet_the_brand[forloop.index0] }}
+                    </div>
+                </div>
+            {% endif %}
+                
+            {%- comment -%} Event Polices {%- endcomment -%}
+            {% if shop.metafields.accentuate.event_polices[forloop.index0] %}
+                <div class="accordion__item ">
+                    <button class="accordion__heading"  aria-expanded="false"  data-accordion-heading>{% render 'icon-add' %}{% render 'icon-less' %} {{ event_name }} Event Polices</button>
+                    <div class="accordion__content"  role="region" data-accordion-content>
+                        {{ shop.metafields.accentuate.event_polices[forloop.index0] }}
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+
+    {% if blocks.size > 0 %}
+        {% for item in blocks %}
+            {% if item.type == 'additional_info' %}
+            <div class="accordion__item">
+                <button class="accordion__heading" id="btn{{ forloop.index }}" aria-expanded="false" aria-controls="content{{ forloop.index }}" data-accordion-heading>{% render 'icon-add' %}{% render 'icon-less' %} {{item.settings.heading}}</button>
+                <div class="accordion__content" id="content{{ forloop.index }}" role="region" aria-labelledby="btn{{ forloop.index }}" data-accordion-content>{{item.settings.content}}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

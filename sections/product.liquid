@@ -1,0 +1,43 @@
+<div class="page-container product">
+    <div class="container">
+        {% render 'product-single', product: product, blocks: section.blocks, enable_zoom: settings.enable_pswp_zoom %}
+    </div>
+
+    {% if settings.enable_pswp_zoom %}
+        {% render 'pswp-gallery' %}
+    {% endif %}
+    
+</div> 
+
+<script>
+    window.enable_zoom = {{ section.settings.enable_zoom | json}};
+</script>
+
+{% schema %}
+{
+  "name": {
+    "en": "Product"
+  },
+  "class": "product__section",
+  "settings": [],
+  "blocks": [
+        {
+        "type": "additional_info",
+        "name": "Additional Info",
+        "settings":[
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "content",
+                "label": "Content"
+            }
+        ]
+        }
+    ]
+}
+{% endschema %}
+  

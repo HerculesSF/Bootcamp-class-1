@@ -1,0 +1,32 @@
+{
+  "wrapper": "div.page-container",
+  "sections": {
+    "event-detail": {
+      "type": "event-detail",
+      "settings": {}
+    },
+    "price-table-category": {
+      "type": "price-table-category",
+      "settings": {}
+    },
+    "price-table": {
+      "type": "price-table",
+      "settings": {}
+    },
+    "gallery-slider": {
+      "type": "gallery-slider",
+      "settings": {}
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {}
+    }
+  },
+  "order": [
+    "event-detail",
+    "price-table-category",
+    "price-table",
+    "gallery-slider",
+    "instagram"
+  ]
+}

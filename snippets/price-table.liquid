@@ -1,0 +1,45 @@
+<div class="price-table {% unless section.settings.full_width %} container page-container {% endunless %} ">
+
+    <h2 class=".h2">{{title}}</h2>
+
+    <swiper-slider class="swiper swiper__product-card"  
+    data-view-mobile="1.1"
+    data-view-tablet="3.2"
+    data-view-tablet-extra="4"
+    data-view-desktop="4" 
+    data-options='{ "pagination": { "el": ".swiper-pagination", "dynamicBullets": false } }' style="width: 100%;display: block;">
+
+        <div class="swiper-wrapper">
+
+            {% for block in section.blocks %}
+                <div class="swiper-slide">
+                    <div data-zoomable>
+                        <img src="{{ block.settings.image | img_url: '2000x' }}" class="price-table__image-picker"
+                        alt="{{ block.settings.image.alt | escape}}">
+                    </div> 
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        {% if section.blocks.size > 4 %}
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        {% endif %}
+
+    </swiper-slider>
+
+</div>
+
+<style>
+    .price-table {
+        margin-bottom: 3rem;
+        padding-top: 51px;
+        padding-bottom: 37px;
+    }
+    .price-table__image-picker{
+        width: 100%;
+    }
+</style>

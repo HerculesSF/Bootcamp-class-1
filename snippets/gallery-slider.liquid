@@ -1,0 +1,52 @@
+{{ 'gallery-slider.css' | asset_url | stylesheet_tag }} 
+
+<div class="gallery-slider container page-container">
+
+    {% if title %}
+        <div class="carousel__heading-wrapper"> 
+            <h2 class="carousel__heading">{{title}}</h2> 
+        </div>
+    {% endif %}
+
+    <swiper-slider class="swiper swiper__product-card"  
+    data-view-mobile="1.1"
+    data-view-tablet="3.2"
+    data-view-tablet-extra="3"
+    data-view-desktop="3" 
+    data-options='{ "pagination": { "el": ".swiper-pagination", "dynamicBullets": false } }' style="width: 100%;display: block;">
+
+      <div class="swiper-wrapper">
+
+          {% for image in blocks_gallery limit: 6 %}
+              <div class="swiper-slide">
+
+                  {% if image %}
+                   
+                      {%- assign image_url = image.cloudinary_src | append: 'w_2000' -%}
+
+                      <div data-zoomable>
+                        {% render 'image', src: image_url, aspect_ratio: image.aspect_ratio, alt: image.alt %}
+                      </div> 
+
+                  {% else %}
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+
+              </div>
+
+          {% endfor %}
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+
+      {% if blocks_gallery | size > 3 %}
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      {% endif %}
+
+    </swiper-slider>
+
+</div>
+
+

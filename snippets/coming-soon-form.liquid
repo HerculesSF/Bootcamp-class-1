@@ -1,0 +1,61 @@
+
+<coming-soon-form>
+
+    <div class="coming-soon__confirm-message" data-confirm-message>{{ 'general.event_form_coming_soon.confirmation' | t }}</div>
+
+    <form id="{{ formID }}" action="" method="POST">
+        {% if klaviyo_list_id != blank %}
+            <input type="hidden" name="g" value="{{ klaviyo_list_id }}">
+        {% endif %}
+
+        <div class="input-group {% if form.errors %} input-group--error {% endif %}">
+            <label hidden for="{{ formID }}-email">Email</label>
+            <input type="email"
+            name="email"
+            id="{{ formID }}-email"
+            class="input-group__field {% if form.errors %} input--error {% endif %}"
+            value="{{ form.email }}"
+            placeholder="Email*"
+            aria-label="Email"
+            aria-required="true"
+            required
+            autocorrect="off"
+            autocapitalize="off"
+            {% if form.errors %}
+                aria-invalid="true"
+                aria-describedby="{{ formID }}-email-error"
+                data-form-status
+            {% endif %}>
+        </div>
+
+        <div class="coming-soon__form--half-width-container">
+            <div class="coming-soon__form--half-width">
+                <label hidden for="{{ formID }}-first_name">First Name</label>
+                <input type="text"
+                id="{{ formID }}-first_name"
+                name="first_name"
+                placeholder="First Name*"
+                value=""
+                size="30"
+                required />
+            </div>
+            <div class="coming-soon__form--half-width">
+                <label hidden for="{{ formID }}-last_name">Last Name</label>
+                <input type="text" 
+                id="{{ formID }}-last_name"
+                name="last_name" 
+                placeholder="Last Name*" 
+                size="30" 
+                required />
+            </div>
+        </div>   
+
+        <button type="submit" class="btn btn-full">
+            {{ form_button_text }}
+        </button>
+
+    </form>
+
+</coming-soon-form>
+
+{{ 'coming-soon-form.js' | asset_url | script_tag }}

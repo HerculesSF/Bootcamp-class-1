@@ -1,0 +1,19 @@
+{%- assign dateValue = dateValue | split: '/' -%}
+{%- assign day = dateValue[1] -%}
+{%- assign month = dateValue[0] -%}
+{%- assign year = dateValue[2] -%}
+{%- if default == true -%}
+    {%- assign baseDate = year | append: '-' | append: month | append: '-' | append: day | append: ' 00:00' -%}
+    {{ baseDate }}
+{%- else -%}
+    {%- assign baseDate = day | append: '-' | append: month | append: '-' | append: year -%}
+    {%- capture dayText -%}
+        {%- case day -%}
+        {% when '1' or '21' or '31' %}{{ day }}st
+        {% when '2' or '22' %}{{ day }}nd
+        {% when '3' or '23' %}{{ day }}rd
+        {% else %}{{ day }}th
+        {%- endcase -%}
+    {%- endcapture -%}
+    {{ dayText }} {{ baseDate | date: '%B' }}
+{%- endif -%}

@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "162998274931a930db": {
+      "type": "coming-soon",
+      "settings": {
+        "highlighted_info": "",
+        "heading": "Tocca",
+        "additional_info": "",
+        "description": "",
+        "image": "shopify:\/\/shop_images\/picture_4cd0a83c-8e50-49cb-8580-1833577a7f06.png",
+        "notify_form_heading": "Sign up and get notify when it’s open:",
+        "klaviyo_list": "",
+        "notify_button_text": "Notify Me",
+        "link_text": "Inside the Sale + Price Table",
+        "link_url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "162998274931a930db"
+  ]
+}

@@ -1,0 +1,47 @@
+.timer {
+    position: relative;
+    display: block;
+}
+
+.timer__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+.timer__title {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    padding-top: 20px;
+}
+
+.timer__counter {
+    font-size: 45px;
+    line-height: 52px;
+    letter-spacing: -2px;
+    height: 52px;
+}
+
+.timer__link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+
+
+

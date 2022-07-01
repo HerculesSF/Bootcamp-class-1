@@ -1,0 +1,120 @@
+{%- comment -%} Capture the content for header containing the tracking data {%- endcomment -%}
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+{% comment %} Check preview live URL {% endcomment %}
+{%- capture previewLive -%}
+    {%- render 'preview-event-url', contentForQuerystring: contentForQuerystring -%}
+{%- endcapture -%}
+
+{% if previewLive contains 'true' %}
+  {% assign previewLive = true %}
+{% else %}
+  {% assign previewLive = false %}
+{% endif %}
+
+{% comment %} Get event handle from page title {% endcomment %}
+{%- assign eventName = page.title | split: '-' | first | handleize -%}
+
+{%- capture eventIndex -%}
+    {%- render 'event-index', eventName: eventName -%}
+{%- endcapture -%}
+
+{%- assign eventIndex = eventIndex | plus: 0 -%}
+
+{% comment %} Check if the event is live {% endcomment %}
+{%- capture eventStatus -%}{% render 'get-event-status', eventIndex: eventIndex %}{%- endcapture -%}
+
+{%- assign liveEvent = false -%}
+{%- if eventStatus == 'live' -%}
+    {%- assign liveEvent = true -%}
+{%- endif -%}
+
+{% comment %} Event date {% endcomment %}
+{%- if eventIndex >= 0 -%}
+    {% capture eventDate %}
+        {% render 'format-date', dateValue: shop.metafields.accentuate.event_start_date[eventIndex] %} - {% render 'format-date', dateValue: shop.metafields.accentuate.event_end_date[eventIndex] %}
+    {% endcapture %}
+{%- endif -%}
+
+{% if liveEvent or previewLive %}
+
+  {%- if previewLive -%}
+      <div style="background: red;color: white;text-align: center;">Preview mode</div>
+  {%- endif -%}
+
+  {% assign image_event = page.metafields.accentuate.event_detail_image | first %}
+  {% assign image_url = image_event.cloudinary_src  | append: 'w_1600' %}
+  {% render 'event-detail',
+      img_url: image_url,
+      image: image_event,
+      highlighted_information: eventDate,
+      heading: page.metafields.accentuate.event_detail_heading,
+      additional_info: page.metafields.accentuate.event_detail_additional_info,
+      description: page.metafields.accentuate.event_detail_event_description,
+      date_location: page.metafields.accentuate.event_detail_date_location,
+      link_url: page.metafields.accentuate.event_detail_bottom_link,
+      link_text: page.metafields.accentuate.event_detail_bottom_link_text
+  %}
+
+  {% render 'price-table-category-metafields',
+    full_width: page.metafields.accentuate.price_category_full_width,
+    title: page.metafields.accentuate.price_category_heading,
+    items_blocks: page.metafields.accentuate
+  %}
+
+  {% render 'price-table-metafields', 
+    title: page.metafields.accentuate.price_table_heading,
+    full_width: page.metafields.accentuate.price_table_full_width,
+    blocks_images: page.metafields.accentuate.price_table_images
+  %}
+
+  {% render 'gallery-slider',
+    title: page.metafields.accentuate.gallery_slider_title,
+    blocks_gallery: page.metafields.accentuate.gallery_images
+  %}
+
+  {% if page.metafields.accentuate.instagram_hashtag == 'la' %}
+    {% assign instagramID = settings.instagram_la %}
+  {% elsif page.metafields.accentuate.instagram_hashtag == 'miami' %}
+    {% assign instagramID = settings.instagram_miami %}
+  {% else %}
+    {% assign instagramID = settings.instagram_260 %}
+  {% endif %}
+
+  {% render 'instagram',
+    full_width: false,
+    title: page.metafields.accentuate.instagram_title,
+    description: page.metafields.accentuate.instagram_description,
+    link_url: page.metafields.accentuate.instagram_url,
+    link_text: page.metafields.accentuate.instagram_text_link,
+    ID_instagram: instagramID,
+  %}
+
+{% else %}
+
+  {%- assign coming_soon_image = page.metafields.accentuate.coming_soon_image | first -%}
+  {%- assign form_heading = 'events.online_coming_soon.form_heading' | t -%}
+  {%- assign form_button_text = 'events.online_coming_soon.form_button_text' | t -%}
+
+  {% comment %} Event date {% endcomment %}
+  {%- if eventIndex >= 0 -%}
+      {% capture eventDate %}
+          {% render 'format-date', dateValue: shop.metafields.accentuate.event_start_date[eventIndex] %} - {% render 'format-date', dateValue: shop.metafields.accentuate.event_end_date[eventIndex] %}
+      {% endcapture %}
+  {%- endif -%}
+
+  {% render 'coming-soon'
+      highlighted_info: eventDate,
+      heading: page.metafields.accentuate.coming_soon_heading,
+      additional_info: page.metafields.accentuate.coming_soon_Additional_Info,
+      description: page.metafields.accentuate.coming_soon_description,
+      form_heading: form_heading,
+      date_location: page.metafields.accentuate.event_detail_date_location,
+      klaviyo_list_id: page.metafields.accentuate.coming_soon_klaviyo_list_id,
+      form_button_text: form_button_text,
+      anchor_link: page.metafields.accentuate.coming_soon_anchor_link,
+      anchor_text: page.metafields.accentuate.coming_soon_anchor_text,
+      coming_soon_image: coming_soon_image
+  %}
+
+{% endif %}

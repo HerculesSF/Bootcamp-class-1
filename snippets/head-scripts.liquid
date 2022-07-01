@@ -1,0 +1,51 @@
+{% comment %} All pages {% endcomment %}
+<script src="{{ 'hoverintent.min.js' | asset_url }}"></script>
+<script src="{{ 'tabbable.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'focus-trap.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'focus-visible.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'lazyload.js' | asset_url }}"></script>
+<script src="{{ 'component-tooltip.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Not on index {% endcomment %}
+{% unless template.name contains 'index' %}
+    <script src="{{ 'medium-zoom.min.js' | asset_url }}" defer="defer"></script>
+    {% render 'component-swiper-slider' %}
+    <script src="{{ 'component-price.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quick-view.js' | asset_url }}" defer="defer"></script>
+{% endunless %}
+
+{% comment %} All pages {% endcomment %}
+<script src="{{ 'bundle.js' | asset_url }}" defer="defer"></script>
+
+{% comment %} Init theme {% endcomment %}
+<script type="text/javascript">
+window.theme = window.theme || {};
+window.theme.script = {};
+window.theme.file_url = "{{ '' | file_url }}";
+</script>
+
+{% comment %} Product page {% endcomment %}
+{% if template.name contains 'product' %}
+
+    <script type="text/javascript" defer="defer">
+
+        {% comment %} Load product data into theme {% endcomment %}
+        window.theme.currentProduct = {{ product | json }};
+
+        {% comment %} 
+        window.theme.swatches = window.theme.swatches || {};
+        window.theme.swatches.options = window.theme.swatches.options || {};
+        window.theme.swatches.options.imageSize = '100';
+        {% endcomment %}
+
+    </script>
+
+    {% if settings.enable_pswp_zoom %}
+        {{ 'photoswipe.css' | asset_url | stylesheet_tag }}
+        {{ 'default-skin.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'photoswipe.min.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'photoswipe-ui-default.min.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
+    
+{% endif %}
+

@@ -1,0 +1,66 @@
+
+
+<li class="global-menu__level1">
+
+    {%- assign level1Title = 'Physical Events' -%}
+    {%- assign menu_title = level1Title| handleize -%}
+
+    <a href="#" data-accordion-heading data-menu="{{menu_title}}">{{ level1Title }}</a>
+
+    <ul data-accordion-content data-accordion-submenu class="hidden">
+
+        {% for level1 in linklists[menu].links %}
+
+            {% if level1.levels > 0 %}
+
+                <li class="global-menu__level2">
+
+                    {% if level1.levels > 0 %}
+
+                        {%- assign menu_title = level1.title | handleize -%}
+
+                        <a href="{{ level1.url }}" data-accordion-heading data-menu-level2="{{menu_title}}">{{ level1.title }} <span style="text-transform: uppercase;">{%- render 'event-subtitle', eventName: level1.title, showLiveLabel: true, showComingSoonDate: false, enableIntersectionObserver: false -%}</span></a>
+
+                        <ul data-accordion-content data-accordion-submenu class="hidden">
+                        
+                            {% for level2 in level1.links %}
+
+                                <li class="global-menu__level3">
+
+                                    {%- assign menu_title = level2.title | handleize -%}
+
+                                    {%- assign level2Title = level2.title | split: ',' | first -%}
+
+                                    <a href="{{ level2.url }}" data-menu-level3="{{menu_title}}">{{ level2Title }} <span style="text-transform: uppercase;">{%- render 'event-subtitle', eventName: level2.title, showLiveLabel: true, showComingSoonDate: false, enableIntersectionObserver: false -%}</span></a>
+                            
+                                </li>
+                            
+                            {% endfor %}
+
+                        </ul>
+
+                    {% else %}
+
+                        {%- assign menu_title = level1.title | handleize -%}
+
+                        <a href="{{ level1.url }}" data-menu="{{menu_title}}">{{ level1.title }} <span style="text-transform: uppercase;">{%- render 'event-subtitle', eventName: level1.title, showLiveLabel: true, showComingSoonDate: false, enableIntersectionObserver: false -%}</span></a>
+
+                    {% endif %}
+
+                </li>
+                
+            {% else %}
+
+                {%- assign menu_title = level1.title | handleize -%}
+
+                <li class="global-menu__level2">
+                    <a href="{{ level1.url }}" data-menu="{{menu_title}}">{{ level1.title }}</a>
+                </li>
+                
+            {% endif %}
+            
+        {% endfor %}
+
+    </ul>
+
+</li>

@@ -1,0 +1,11 @@
+{%- if eventName != blank -%}
+    {%- assign eventName = eventName | handleize -%}
+    {%- assign finalIndex = -1 -%}
+    {%- for eventNameItem in shop.metafields.accentuate.event_name -%}
+        {%- assign eventHandle = eventNameItem | handleize -%}
+        {%- if eventHandle == eventName -%}
+            {%- assign finalIndex = forloop.index0 -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {{- finalIndex -}}
+{%- endif -%}

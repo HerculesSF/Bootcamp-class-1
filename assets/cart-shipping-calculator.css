@@ -1,0 +1,21 @@
+
+.cart-shipping-calculator-error {
+    color: #bb0000;
+    text-transform: capitalize;
+}
+
+.cart-shipping-calculator__wrapper-response ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #f5f5f5;
+}
+
+.cart-shipping-calculator__wrapper-response li {
+    border-bottom: 1px solid #f5f5f5;
+    padding: 15px 0;
+}
+
+.cart-shipping-calculator__wrapper-response.no-results {
+    padding-top: 65px;
+}

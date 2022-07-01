@@ -1,0 +1,37 @@
+{% comment %} All pages {% endcomment %}
+
+{% render 'overlay' %}
+{% render 'component-event-subtitle' %}
+
+<script src="{{ 'component-product-card.js' | asset_url }}" defer="defer"></script>
+
+{% unless template.name contains 'index' %}
+
+    {% render 'component-addtocart' %}
+    {% render 'component-variant-selector' %}
+    {% render 'component-swatches' %}
+    {% render 'component-stock-level' %}
+    {% render 'quick-view' %}
+    {% render 'component-product-gallery' %}
+    {% render 'component-quick-variant-selector' %}
+
+{% endunless %}
+
+{% comment %} Product page {% endcomment %}
+{% if template.name contains 'product' %}
+
+    {% render 'size-guide' %}
+
+    {% render 'component-appikon' %}
+
+{% endif %}
+
+{% comment %} Cart page {% endcomment %}
+{% if template.name contains 'cart' %}
+
+{% render 'component-appikon' %}
+
+{% endif %}
+
+
+

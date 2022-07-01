@@ -1,0 +1,40 @@
+
+{%- capture eventIndex -%}
+  {%- render 'event-index', eventName: product.vendor -%}
+{%- endcapture -%}
+
+{%- assign eventIndex = eventIndex | plus: 0 -%}
+
+{% if product.metafields.my_fields.size_guide.value != blank %}
+
+  {%- assign size_guide_image = product.metafields.my_fields.size_guide.value | img_url: "master" -%}
+
+{% elsif shop.metafields.accentuate.size_guide[eventIndex] != blank %}
+
+  {% for image in shop.metafields.accentuate.size_guide[eventIndex] %}
+
+    {% assign imageType = image.alt | handleize %}
+    {% assign productType = product.type | handleize %}
+
+    {% if imageType == productType %}
+
+      {%- assign size_guide_image = image.cloudinary_src | append: 'w_1600' -%}
+
+      {% break %}
+
+    {% endif %}
+
+  {% endfor %}
+
+{% endif %}
+
+{% if size_guide_image %}
+          
+  <div class="modal__container " role="dialog" aria-modal="true" data-modal data-modal-name= "{{product.handle}}-sizes">
+    <div class="modal__content modal__content--large">
+        <button class="modal__close" data-modal-close>{% render 'icon-close' %}</button>
+        <img src="{{ size_guide_image }}" alt="Product size guide"/>
+    </div>
+  </div>
+
+{% endif %}
