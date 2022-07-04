@@ -1,11 +1,15 @@
 {
   "sections": {
-    "test_index": {
-      "type": "test",
-      "settings": {}
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "title": "Collections",
+        "sort": "alphabetical",
+        "image_ratio": "square"
+      }
     }
   },
   "order": [
-    "test_index"
+    "main"
   ]
 }

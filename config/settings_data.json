@@ -1,402 +1,398 @@
 {
   "current": {
-    "favicon": "shopify:\/\/shop_images\/Group_334.png",
-    "social_title": "Social",
-    "social_instagram_name_NYC": "NYC",
-    "social_instagram_link_NYC": "shopify:\/\/pages\/style-guide",
-    "social_instagram_name_LA": "LA",
-    "social_instagram_link_LA": "shopify:\/\/pages\/style-guide",
-    "social_instagram_name_MIA": "MIA",
-    "social_instagram_link_MIA": "shopify:\/\/pages\/style-guide",
-    "social_tiktok_name": "260SS",
-    "social_tiktok_link": "shopify:\/\/collections",
-    "swatch_types": "",
-    "instagram_section_id": "elfsight-app-4af281a6-4a12-447a-9aa4-408279419d5c",
-    "enable_quick_view": false,
-    "checkout_logo_image": "shopify:\/\/shop_images\/260-Logo-SMALL-WhiteBG_64c52733-135c-4ca2-8f5b-155baeae0205.png",
-    "checkout_accent_color": "#d22026",
-    "checkout_button_color": "#d22026",
-    "checkout_error_color": "#d22026",
+    "colors_solid_button_labels": "#ed1e7a",
+    "colors_accent_1": "#000000",
+    "gradient_accent_1": "",
+    "colors_accent_2": "#334fb4",
+    "gradient_accent_2": "",
+    "colors_text": "#000000",
+    "colors_outline_button_labels": "#ed1e7a",
+    "colors_background_1": "#ffffff",
+    "gradient_background_1": "",
+    "colors_background_2": "#ffffff",
+    "gradient_background_2": "",
+    "type_header_font": "nunito_n4",
+    "heading_scale": 100,
+    "type_body_font": "nunito_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 50,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "background-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 0,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "accent-2",
+    "sold_out_badge_color_scheme": "inverse",
+    "accent_icons": "text",
+    "social_twitter_link": "#",
+    "social_facebook_link": "#",
+    "social_pinterest_link": "",
+    "social_instagram_link": "#",
+    "social_tiktok_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "#",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/awake.png",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_sidebar_background_color": "#000000",
+    "checkout_heading_font": "Lato",
+    "checkout_body_font": "Lato",
+    "checkout_accent_color": "#080808",
+    "checkout_button_color": "#080808",
     "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "settings": {
+              "text": "Welcome to our store",
+              "color_scheme": "background-1",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {}
+      },
       "header": {
         "type": "header",
-        "blocks": {
-          "2eaa4426-24c9-4ed0-b2c3-45b50a99b340": {
-            "type": "menu_content",
-            "settings": {
-              "menu_content_id": "Girlfriend Collective",
-              "menu_item_id": "LA",
-              "item_1_image": "shopify:\/\/shop_images\/image_7.jpg",
-              "item_1_title": "Girlfriend Collective",
-              "item_1_subtitle": "",
-              "item_1_link": "shopify:\/\/pages\/girlfriend-collective",
-              "item_2_image": "shopify:\/\/shop_images\/image_8.jpg",
-              "item_2_title": "Bally",
-              "item_2_subtitle": "",
-              "item_2_link": "",
-              "item_3_image": "shopify:\/\/shop_images\/image_9.jpg",
-              "item_3_title": "Reformation",
-              "item_3_subtitle": "",
-              "item_3_link": "",
-              "item_4_image": "shopify:\/\/shop_images\/image_7.jpg",
-              "item_4_title": "Girlfriend Collective",
-              "item_4_subtitle": "",
-              "item_4_link": ""
-            }
-          },
-          "d5a21f55-7daa-4f93-99b6-fb25efbf2f3f": {
-            "type": "menu_content",
-            "settings": {
-              "menu_content_id": "Happy Socks",
-              "menu_item_id": "Coming Soon",
-              "item_1_image": "shopify:\/\/shop_images\/image_5a679c2e-4a88-4307-833d-31c1209d61fd.png",
-              "item_1_title": "Happy Socks",
-              "item_1_subtitle": "Coming Soon",
-              "item_1_link": "",
-              "item_2_image": "shopify:\/\/shop_images\/image_9.jpg",
-              "item_2_title": "Tocca",
-              "item_2_subtitle": "Coming Soon",
-              "item_2_link": "shopify:\/\/pages\/tocca",
-              "item_3_title": "",
-              "item_3_subtitle": "",
-              "item_3_link": "",
-              "item_4_title": "",
-              "item_4_subtitle": "",
-              "item_4_link": ""
-            }
-          },
-          "c6f998f5-4f18-4d98-b191-8fa641ddf240": {
-            "type": "menu_content",
-            "settings": {
-              "menu_content_id": "Happy Socks",
-              "menu_item_id": "Now Live",
-              "item_1_image": "shopify:\/\/shop_images\/picture_dc7ad01c-f6f0-4bc8-9e78-182453255466.png",
-              "item_1_title": "Fleur du Mal",
-              "item_1_subtitle": "Now live",
-              "item_1_link": "shopify:\/\/pages\/fleur-du-mal",
-              "item_2_title": "",
-              "item_2_subtitle": "",
-              "item_2_link": "",
-              "item_3_title": "",
-              "item_3_subtitle": "",
-              "item_3_link": "",
-              "item_4_title": "",
-              "item_4_subtitle": "",
-              "item_4_link": ""
-            }
-          },
-          "27dcc2d7-eff9-4c5f-a30b-e707015eda04": {
-            "type": "menu_content",
-            "settings": {
-              "menu_content_id": "Fleur du Mal",
-              "menu_item_id": "Bridal",
-              "item_1_image": "shopify:\/\/shop_images\/image_5.png",
-              "item_1_title": "Washable Silk",
-              "item_1_subtitle": "",
-              "item_1_link": "",
-              "item_2_image": "shopify:\/\/shop_images\/image_5.png",
-              "item_2_title": "Washable Silk",
-              "item_2_subtitle": "",
-              "item_2_link": "",
-              "item_3_title": "",
-              "item_3_subtitle": "",
-              "item_3_link": "",
-              "item_4_title": "",
-              "item_4_subtitle": "",
-              "item_4_link": ""
-            }
-          },
-          "6c0e163a-823a-4bb1-b8b9-ea8d89b590af": {
-            "type": "form_modal",
-            "settings": {
-              "menu_name": "Test link",
-              "klaviyo_form": "klaviyo-form-WUNR9T"
-            }
-          },
-          "a5715333-90f9-45d8-b46d-d72b4a1cf98d": {
-            "type": "menu_content",
-            "settings": {
-              "menu_content_id": "Fleur du mal",
-              "menu_item_id": "Lounge",
-              "item_1_image": "shopify:\/\/shop_images\/image_9.png",
-              "item_1_image_hover": "shopify:\/\/shop_images\/image_8.png",
-              "item_1_title": "",
-              "item_1_subtitle": "",
-              "item_1_link": "",
-              "item_2_image": "shopify:\/\/shop_images\/Brown_Bears_Closeup_Painting_Art_Snout_Glance_518618_2000x2800_f7b155a7-53dc-4402-a4fa-5548baf943c8.jpg",
-              "item_2_title": "",
-              "item_2_subtitle": "",
-              "item_2_link": "",
-              "item_3_image": "shopify:\/\/shop_images\/sdadsfasd.jpg",
-              "item_3_title": "",
-              "item_3_subtitle": "",
-              "item_3_link": "",
-              "item_4_image": "shopify:\/\/shop_images\/2000x2800.png",
-              "item_4_title": "",
-              "item_4_subtitle": "",
-              "item_4_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "2eaa4426-24c9-4ed0-b2c3-45b50a99b340",
-          "d5a21f55-7daa-4f93-99b6-fb25efbf2f3f",
-          "c6f998f5-4f18-4d98-b191-8fa641ddf240",
-          "27dcc2d7-eff9-4c5f-a30b-e707015eda04",
-          "6c0e163a-823a-4bb1-b8b9-ea8d89b590af",
-          "a5715333-90f9-45d8-b46d-d72b4a1cf98d"
-        ],
         "settings": {
-          "main_linklist": "main-menu"
-        }
-      },
-      "opening-screen": {
-        "type": "opening-screen",
-        "blocks": {
-          "bebb1eff-7ad1-4810-b620-7b543f18cb3e": {
-            "type": "image",
-            "settings": {
-              "menu_title": "Physical Events",
-              "image_desktop": "shopify:\/\/shop_images\/image_8.jpg",
-              "text_color_desktop": "#ffa000",
-              "image_mobile": "shopify:\/\/shop_images\/image_e9a36d8d-a564-4254-a62f-c4e872367c2b.png",
-              "text_color_mobile": "#000000"
-            }
-          },
-          "f9fa4660-45b0-4a36-a3a6-ee38bdab402c": {
-            "type": "image",
-            "settings": {
-              "menu_title": "Test pages",
-              "image_desktop": "shopify:\/\/shop_images\/picture_4cd0a83c-8e50-49cb-8580-1833577a7f06.png",
-              "text_color_desktop": "#000000",
-              "image_mobile": "shopify:\/\/shop_images\/picture_b6078e82-de42-4e40-a57e-bed1a2566557.png",
-              "text_color_mobile": "#ffffff"
-            }
-          },
-          "0e590d8c-8dbe-4c1a-82fe-8f2e27d358ad": {
-            "type": "image",
-            "settings": {
-              "menu_title": "Fleur du Mal",
-              "image_desktop": "shopify:\/\/shop_images\/picture_dc7ad01c-f6f0-4bc8-9e78-182453255466.png",
-              "text_color_desktop": "#ffef00",
-              "image_mobile": "shopify:\/\/shop_images\/image_e9a36d8d-a564-4254-a62f-c4e872367c2b.png",
-              "text_color_mobile": "#c841f7"
-            }
-          },
-          "60301a34-8475-419c-8fc1-362058f4da60": {
-            "type": "image",
-            "settings": {
-              "menu_title": "Test pages",
-              "image_desktop": "shopify:\/\/shop_images\/Brown_Bears_Closeup_Painting_Art_Snout_Glance_518618_2000x2800_f7b155a7-53dc-4402-a4fa-5548baf943c8.jpg",
-              "text_color_desktop": "#ff0202",
-              "image_mobile": "shopify:\/\/shop_images\/Brown_Bears_Closeup_Painting_Art_Snout_Glance_518618_2000x2800_f7b155a7-53dc-4402-a4fa-5548baf943c8.jpg",
-              "text_color_mobile": "#03e725"
-            }
-          },
-          "189a7268-bc0d-4268-984c-db9ab889375a": {
-            "type": "image",
-            "settings": {
-              "menu_title": "Nike, LA",
-              "image_desktop": "shopify:\/\/shop_images\/adidas-banner.png",
-              "text_color_desktop": "#ffffff",
-              "text_color_mobile": "#000000"
-            }
-          },
-          "e9ddcaf3-3ed4-4173-9c89-3b0a2316fa25": {
-            "type": "image",
-            "settings": {
-              "menu_title": "LA",
-              "image_desktop": "shopify:\/\/shop_images\/475457-Los-Angeles.jpg",
-              "text_color_desktop": "#000000",
-              "text_color_mobile": "#000000"
-            }
-          }
-        },
-        "block_order": [
-          "bebb1eff-7ad1-4810-b620-7b543f18cb3e",
-          "f9fa4660-45b0-4a36-a3a6-ee38bdab402c",
-          "0e590d8c-8dbe-4c1a-82fe-8f2e27d358ad",
-          "60301a34-8475-419c-8fc1-362058f4da60",
-          "189a7268-bc0d-4268-984c-db9ab889375a",
-          "e9ddcaf3-3ed4-4173-9c89-3b0a2316fa25"
-        ],
-        "settings": {
-          "main_linklist": "",
-          "image_desktop": "shopify:\/\/shop_images\/picture_30319160-22fc-4c56-a5ea-65153cb19172.jpg",
-          "text_color_desktop": "#ff0000",
-          "image_mobile": "shopify:\/\/shop_images\/picture_c47126ec-f746-443d-92bb-df04a6055054.jpg",
-          "text_color_mobile": "#ffffff"
+          "color_scheme": "background-1",
+          "logo": "shopify:\/\/shop_images\/awake.png",
+          "logo_width": 140,
+          "logo_position": "middle-left",
+          "menu": "main-menu",
+          "menu_type_desktop": "dropdown",
+          "show_line_separator": true,
+          "enable_sticky_header": true,
+          "margin_bottom": 0,
+          "padding_top": 20,
+          "padding_bottom": 20
         }
       },
       "footer": {
         "type": "footer",
-        "settings": {
-          "menu_footer": "footer",
-          "footer_privacy_policy_title": "Privacy Policy",
-          "footer_privacy_policy_link": "shopify:\/\/policies\/privacy-policy",
-          "footer_terms_title": "Terms & Conditions",
-          "footer_terms_link": "shopify:\/\/policies\/terms-of-service",
-          "footer_accessability_title": "Accessability",
-          "footer_accessability_link": "",
-          "footer_faq_title": "FAQ",
-          "footer_faq_link": ""
-        }
-      },
-      "timer": {
-        "type": "timer",
-        "settings": {
-          "timer_title": "Fleur du Mal",
-          "timer_description": "Lorem Ipsum",
-          "timer_date": "2021-08-12 19:00",
-          "desktop_image": "shopify:\/\/shop_images\/picture.jpg",
-          "tablet_image": "shopify:\/\/shop_images\/picture.jpg",
-          "mobile_image": "shopify:\/\/shop_images\/image.jpg"
-        }
-      },
-      "event-detail": {
-        "type": "event-detail",
-        "settings": {
-          "highlighted_information": "June 30th - July 4th",
-          "heading": "Girlfriend Collective Sample Sale",
-          "additional_info": "All Sales Final. No Returns or Exchanges.",
-          "description": "<p>Join us at our Beverly Hills store from Wednesday, June 30th through Sunday, July 4th to shop minimal, luxurious, and eco-friendly active-wear at the Girlfriend Collective Sample Sale! Find wardrobe must-haves that are the best of the best without sacrificing style, sustainability, or quality.<\/p>",
-          "date_location": "<p>Wednesday 30th - July 3th: <strong>11AM - 7PM<\/strong><br\/>Sunday 4th: <strong>11AM - 5PM<\/strong><\/p>",
-          "image": "shopify:\/\/shop_images\/picture.png",
-          "link_text": "Inside the Sale + Price Table",
-          "link_url": "shopify:\/\/pages\/fleur-du-mal"
-        }
-      },
-      "hot-trends": {
-        "type": "hot-trends",
-        "settings": {
-          "heading": "Hot Trends",
-          "small_image": "shopify:\/\/shop_images\/image.png",
-          "small_title": "Swim Good",
-          "small_description": "Introducing swim in bra sizing",
-          "small_link": "",
-          "large_image": "shopify:\/\/shop_images\/image_0b7772e2-403b-4252-a7a6-d453833d3782.png",
-          "large_title": "White Hot Wedding",
-          "large_description": "Here comes bridal season",
-          "large_link": ""
-        }
-      },
-      "price-table-category": {
-        "type": "price-table-category",
         "blocks": {
-          "911dfe7a-64a9-4347-9e7d-aefa7b635425": {
-            "type": "item",
+          "footer-0": {
+            "type": "link_list",
             "settings": {
-              "heading": "Sports Bras",
-              "price": "10.00",
-              "image": "shopify:\/\/shop_images\/image1.png",
-              "link": "shopify:\/\/collections\/collection7"
+              "heading": "Quick links",
+              "menu": "footer"
             }
           },
-          "d8efdf07-5f14-435f-8daa-25a471f3973f": {
-            "type": "item",
+          "footer-1": {
+            "type": "link_list",
             "settings": {
-              "heading": "Shorts \/ Skirts",
-              "price": "15.00",
-              "image": "shopify:\/\/shop_images\/image2.png",
-              "link": ""
+              "heading": "Info",
+              "menu": "footer"
             }
           },
-          "8033c753-dbbf-45fb-893d-452665a919ca": {
-            "type": "item",
+          "footer-2": {
+            "type": "text",
             "settings": {
-              "heading": "Leggings",
-              "price": "20.00",
-              "image": "shopify:\/\/shop_images\/image3.png",
-              "link": ""
-            }
-          },
-          "aa856025-daff-42a3-acf5-e9ae639968f9": {
-            "type": "item",
-            "settings": {
-              "heading": "Unitards \/ Dresses",
-              "price": "25.00",
-              "image": "shopify:\/\/shop_images\/image4.png",
-              "link": ""
+              "heading": "Our mission",
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
             }
           }
         },
         "block_order": [
-          "911dfe7a-64a9-4347-9e7d-aefa7b635425",
-          "d8efdf07-5f14-435f-8daa-25a471f3973f",
-          "8033c753-dbbf-45fb-893d-452665a919ca",
-          "aa856025-daff-42a3-acf5-e9ae639968f9"
+          "footer-0",
+          "footer-1",
+          "footer-2"
         ],
         "settings": {
-          "heading": "Price Table"
+          "color_scheme": "inverse",
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe to our emails",
+          "show_social": true,
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": true,
+          "margin_top": 48,
+          "padding_top": 36,
+          "padding_bottom": 36
         }
       },
-      "products-slider": {
-        "type": "products-slider",
+      "main-password-header": {
+        "type": "main-password-header",
         "settings": {
-          "title": "(un)Dress Me Collection",
-          "collection": "collection1"
+          "logo": "{{ shop.brand.logo }}",
+          "logo_max_width": 100,
+          "color_scheme": "background-1"
         }
       },
-      "gallery-slider": {
-        "type": "gallery-slider",
-        "blocks": {
-          "0d4374d9-02e7-4021-827e-b8efd319de35": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/image_b68a915b-c3e3-4e12-ae69-c7f2e5e76975.png"
-            }
-          },
-          "b2929a23-e129-466f-a6c3-d7d09d5e93f8": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/image_d161d2b0-821e-4c87-b840-03a2f9352a18.png"
-            }
-          },
-          "4f1b212d-15ff-4d35-bfaa-88ec25034d91": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/image_3ff28a87-7c4b-4b50-be1a-40a15fba1253.png"
-            }
-          }
-        },
-        "block_order": [
-          "0d4374d9-02e7-4021-827e-b8efd319de35",
-          "b2929a23-e129-466f-a6c3-d7d09d5e93f8",
-          "4f1b212d-15ff-4d35-bfaa-88ec25034d91"
-        ],
+      "main-password-footer": {
+        "type": "main-password-footer",
         "settings": {
-          "title": "Inside the Sale"
+          "color_scheme": "background-1"
         }
-      },
-      "coming-soon": {
-        "type": "coming-soon",
-        "settings": {
-          "highlighted_info": "July 6th - July 11th",
-          "heading": "Happy Socks Online Sample Sale",
-          "additional_info": "All Sales Final. No Returns or Exchanges.",
-          "description": "<p>Shop a wide selection of quirky & colorful socks that bring a pop of fun to any outfit at the Happy Socks Online Sample Sale!<\/p>",
-          "image": "shopify:\/\/shop_images\/caming-soon-img.png",
-          "notify_form_heading": "Sign up and get notify when it’s open:",
-          "notify_button_text": "Notify Me",
-          "link_text": "FAQ",
-          "link_url": ""
-        }
-      },
-      "instagram": {
-        "type": "instagram",
-        "settings": {
-          "title": "@260la",
-          "description": "Anticipated Sales. Beloved Brands. Every Week!",
-          "link_text": "Follow us",
-          "link_url": "",
-          "ID_instagram": "elfsight-app-4af281a6-4a12-447a-9aa4-408279419d5c"
-        }
-      },
-      "alert-message": {
-        "type": "alert-message",
-        "settings": {}
       }
     },
     "content_for_index": []
+  },
+  "presets": {
+    "Default": {
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#121212",
+      "gradient_accent_1": "",
+      "colors_accent_2": "#334fb4",
+      "gradient_accent_2": "",
+      "colors_text": "#121212",
+      "colors_outline_button_labels": "#121212",
+      "colors_background_1": "#ffffff",
+      "gradient_background_1": "",
+      "colors_background_2": "#f3f3f3",
+      "gradient_background_2": "",
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "background-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 0,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "accent-2",
+      "sold_out_badge_color_scheme": "inverse",
+      "accent_icons": "text",
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "text": "Welcome to our store",
+                "color_scheme": "background-1",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {}
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "color_scheme": "background-1",
+            "logo": "{{ shop.brand.logo }}",
+            "logo_width": 90,
+            "logo_position": "middle-left",
+            "menu": "main-menu",
+            "show_line_separator": true,
+            "enable_sticky_header": true,
+            "margin_bottom": 0,
+            "padding_top": 20,
+            "padding_bottom": 20
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Quick links",
+                "menu": "footer"
+              }
+            },
+            "footer-1": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Info",
+                "menu": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "text",
+              "settings": {
+                "heading": "Our mission",
+                "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "color_scheme": "background-1",
+            "newsletter_enable": true,
+            "newsletter_heading": "Subscribe to our emails",
+            "show_social": true,
+            "enable_country_selector": false,
+            "enable_language_selector": false,
+            "payment_enable": true,
+            "margin_top": 48,
+            "padding_top": 36,
+            "padding_bottom": 36
+          }
+        },
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "logo": "{{ shop.brand.logo }}",
+            "logo_max_width": 100,
+            "color_scheme": "background-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "background-1"
+          }
+        }
+      }
+    }
   }
 }
