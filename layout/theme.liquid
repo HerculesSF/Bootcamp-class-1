@@ -159,6 +159,14 @@
         --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
         --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
+        
+        --color-border: #CCCCCC;
+        --color-black: #000;
+        --color-black-focus: #444;
+        --color-white: #FFF;
+        --color-pink: #ED1E7A;
+        --color-focus: #C01651;
+
       }
 
       *,
@@ -195,6 +203,8 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    {% include 'style' %}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>

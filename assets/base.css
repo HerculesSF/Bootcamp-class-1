@@ -370,6 +370,7 @@ body,
   font-weight: var(--font-body-weight);
 }
 
+/*
 h1,
 h2,
 h3,
@@ -388,7 +389,7 @@ h5,
   color: rgb(var(--color-foreground));
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   word-break: break-word;
-}
+}*/
 
 .hxl {
   font-size: calc(var(--font-heading-scale) * 5rem);
@@ -410,6 +411,7 @@ h5,
   }
 }
 
+/*
 h1,
 .h1 {
   font-size: calc(var(--font-heading-scale) * 3rem);
@@ -471,7 +473,7 @@ h6,
   margin-block-start: 1.67em;
   margin-block-end: 1.67em;
 }
-
+*/
 blockquote {
   font-style: italic;
   color: rgba(var(--color-foreground), 0.75);
@@ -593,6 +595,7 @@ div:empty,
 section:empty,
 article:empty,
 p:empty,
+/*
 h1:empty,
 h2:empty,
 h3:empty,
@@ -600,7 +603,7 @@ h4:empty,
 h5:empty,
 h6:empty {
   display: none;
-}
+}*/
 
 .link,
 .customer a {
@@ -1264,7 +1267,7 @@ deferred-media {
 /* component-button */
 /* Button - default */
 
-.button,
+
 .shopify-challenge__button,
 .customer button,
 button.shopify-payment-button__button--unbranded,
@@ -1282,13 +1285,41 @@ button.shopify-payment-button__button--unbranded,
   position: relative;
 }
 
+/*
 .button,
+.shopify-challenge__button,
+.customer button,
+button.shopify-payment-button__button--unbranded,
+.shopify-payment-button [role="button"],
+.cart__dynamic-checkout-buttons [role='button'],
+.cart__dynamic-checkout-buttons iframe {
+  --shadow-horizontal-offset: var(--buttons-shadow-horizontal-offset);
+  --shadow-vertical-offset: var(--buttons-shadow-vertical-offset);
+  --shadow-blur-radius: var(--buttons-shadow-blur-radius);
+  --shadow-opacity: var(--buttons-shadow-opacity);
+  --shadow-visible: var(--buttons-shadow-visible);
+  --border-offset: var(--buttons-border-offset);
+  --border-opacity: calc(1 - var(--buttons-border-opacity));
+  border-radius: var(--buttons-radius-outset);
+  position: relative;
+}*/
+
+
 .shopify-challenge__button,
 .customer button,
 button.shopify-payment-button__button--unbranded {
   min-width: calc(12rem + var(--buttons-border-width) * 2);
   min-height: calc(4.5rem + var(--buttons-border-width) * 2);
 }
+
+/*.button,
+.shopify-challenge__button,
+.customer button,
+button.shopify-payment-button__button--unbranded {
+  min-width: calc(12rem + var(--buttons-border-width) * 2);
+  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+}
+*/
 
 .shopify-payment-button__button--branded {
   z-index: auto;
@@ -1298,7 +1329,7 @@ button.shopify-payment-button__button--unbranded {
   box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius) rgba(var(--color-base-text), var(--shadow-opacity));
 }
 
-.button,
+
 .shopify-challenge__button,
 .customer button {
   display: inline-flex;
@@ -1316,6 +1347,26 @@ button.shopify-payment-button__button--unbranded {
   appearance: none;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
 }
+
+/*
+.button,
+.shopify-challenge__button,
+.customer button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 0 3rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: rgb(var(--color-button-text));
+  transition: box-shadow var(--duration-short) ease;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
+}*/
 
 .button:before,
 .shopify-challenge__button:before,
@@ -1389,7 +1440,17 @@ button.shopify-payment-button__button--unbranded {
   background-color: rgba(var(--color-button-text), 0.3);
 }
 
+/*
 .button,
+.button-label,
+.shopify-challenge__button,
+.customer button {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+}*/
+
+
 .button-label,
 .shopify-challenge__button,
 .customer button {
@@ -2361,11 +2422,20 @@ input[type='checkbox'] {
 }
 
 .header__icon,
-.header__icon--cart .icon {
+.header__icon--cart  {
   height: 4.4rem;
   width: 4.4rem;
   padding: 0;
 }
+
+/*
+.header__icon,
+.header__icon--cart .icon {
+  height: 4.4rem;
+  width: 4.4rem;
+  padding: 0;
+}*/
+
 
 .header__icon--cart {
   position: relative;
